@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Image gallery of notable U.S. areas" />
+    <meta name="author" content="Ivan Cosgrove" />
+    <meta name="keywords" content="gallery, pictures, landmarks" />
+    <link rel="stylesheet" href="./pages/index.css" />
+    <link rel="icon" href="./favicon.ico" />
+    <title>Around the U.S. Gallery</title>
+</head>
+
+<body class="body">
+    <header class="header">
+        <img class="header__logo" src="./images/vectors/aroundtheUS.svg" alt="Around the U.S." />
+    </header>
+    <section class="profile">
+        <img class="profile__image" src="./images/jacques-cousteau.jpg" alt="Profile image" />
+        <div class="profile__paragraph">
+            <h1 class="profile__title">Jacques Cousteau</h1>
+            <button class="profile__buttons-edit" type="button">
+                <img class="profile__buttons-edit-icon" src="./images/vectors/pen.svg" alt="Edit profile" />
+            </button>
+            <p class="profile__subtitle">Explorer</p>
+        </div>
+
+        <button class="profile__buttons-add" type="button">
+            <img class="header__buttons-add-icon" src="./images/vectors/plus.svg" alt="Add photo" />
+        </button>
+    </section>
+
+    <main class="page">
+        <section class="cards">
+            <ul class="cards__list">
+                <li class="card">
+                    <img src="./images/yosemite.jpg" alt="Yosemite Valley" class="card__image">
+                    <div class="card__description">
+                        <h2 class="card__title">Yosemite Valley</h2>
+                        <button class="card__like-button" type="button"> </button>
+                    </div>
+                </li>
+                <li class="card">
+                    <img src="./images/lake-louise.jpg" alt="lake Louise" class="card__image">
+                    <div class="card__description">
+                        <h2 class="card__title">Lake Louise</h2>
+                        <button class="card__like-button" type="button"> </button>
+                    </div>
+                </li>
+
+            </ul>
+        </section>
+    </main>
