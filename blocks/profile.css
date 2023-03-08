@@ -47,7 +47,6 @@
 
 .profile__buttons {
   display: flex;
-
   margin: 0 0 86px 16px;
 }
 
@@ -57,7 +56,7 @@
   max-height: 24px;
   background-color: rgba(255, 255, 255, 0);
   border: 1px solid #fff;
-  transition: opacity 0.3s linear;
+  transition: opacity 0.4s linear;
   cursor: pointer;
   margin-left: 18px;
   grid-area: button;
@@ -65,7 +64,7 @@
 }
 
 .profile__buttons-edit:hover {
-  opacity: 0.6;
+  opacity: 0.5;
 }
 
 .profile__buttons-add {
@@ -96,7 +95,6 @@
     align-items: center;
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space: nowrap;
   }
 }
 
@@ -108,7 +106,6 @@
     align-items: center;
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space: nowrap;
   }
 
   .profile__buttons-add {
@@ -164,5 +161,82 @@
   .profile__buttons-aicon {
     width: 16px;
     height: 16px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .profile {
+    margin-top: 14px;
+  }
+
+  .profile__image {
+    margin: 0;
+    justify-self: center;
+  }
+  .profile__title {
+    font-size: 22px;
+    line-height: 27px;
+    text-align: center;
+    margin-top: 26.25px;
+    margin-left: 10px;
+  }
+
+  .profile__buttons-edit {
+    max-width: 18px;
+    max-height: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 26.25px;
+  }
+
+  .profile__buttons-add {
+    margin: 0 19px 36px;
+  }
+
+  .profile__buttons_edit-icon {
+    width: 7.5px;
+    height: 7.5px;
+  }
+
+  .profile__buttons-aicon {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .profile__subtitle {
+    margin: auto;
+    padding: 0;
+    align-self: flex-end;
+    font-family: "Inter", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 22px;
+    letter-spacing: 0em;
+    text-align: left;
+    grid-area: subtitle;
+  }
+
+  .profile__buttons {
+    display: flex;
+    margin: 0 0 86px 16px;
+  }
+
+  .profile__buttons-add {
+    opacity: 1;
+    max-width: 150px;
+    max-height: 50px;
+    padding: 14px 64px;
+    background-color: rgba(0, 0, 0, 0);
+    border: 2px solid #fff;
+    border-radius: 2px;
+    transition: opacity 0.3s linear;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
   }
 }

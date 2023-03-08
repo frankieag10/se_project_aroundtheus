@@ -1,11 +1,14 @@
 .card {
   border-radius: 10px;
   overflow: hidden;
+  flex-direction: column;
+  display: flex;
 }
 
 .card__image {
   width: 282px;
   height: 282px;
+  object-fit: cover;
 }
 
 .card__title {
@@ -37,4 +40,8 @@
   height: 18px;
   border: none;
   cursor: pointer;
+}
+
+.card__like-button:hover {
+  opacity: 0.4;
 }
