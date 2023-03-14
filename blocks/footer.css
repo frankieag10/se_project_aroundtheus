@@ -3,9 +3,10 @@
   font-weight: 400;
   font-size: 18px;
   line-height: 22px;
-  width: 318px;
+  max-width: 880px;
+  width: 100%;
   padding: 0 0 60px 0;
-  margin-left: 19px;
+  margin: auto;
 }
 
 .footer__text {
@@ -14,6 +15,13 @@
 }
 
 @media screen and (max-width: 320px) {
+  .footer {
+    margin: 48px 19px 0;
+    padding-bottom: 36px;
+  }
+}
+
+@media screen and (max-width: 768px) {
   .footer {
     margin: 48px 19px 0;
     padding-bottom: 36px;
