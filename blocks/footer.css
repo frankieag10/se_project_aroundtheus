@@ -8,27 +8,21 @@
   margin-left: 19px;
 }
 
+.footer_page__section {
+  max-width: 880px;
+  width: 100%;
+  position: relative;
+  margin: 0 auto;
+}
+
 .footer__text {
   color: #545454;
   margin: 0;
 }
 
 @media screen and (max-width: 320px) {
-  .footer {
+  .footer_page__section {
     margin: 48px 19px 0;
     padding-bottom: 36px;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .footer {
-    margin: 48px 19px 0;
-    padding-bottom: 36px;
-  }
-}
-
-@media screen and (min-width: 425px) and (max-width: 1278px) {
-  .footer {
-    margin: 48px 27px 36px 27px;
   }
 }
