@@ -4,9 +4,8 @@
   font-size: 18px;
   line-height: 22px;
   width: 318px;
-  height: 18px;
   padding: 0 0 60px 0;
-  margin: 67px 0 0 0;
+  margin-left: 19px;
 }
 
 .footer__text {
@@ -18,26 +17,6 @@
   .footer {
     margin: 48px 19px 0;
     padding-bottom: 36px;
-    font-size: 14px;
-    line-height: 17px;
-  }
-}
-
-@media screen and (max-width: 375px) {
-  .footer {
-    margin: 48px 19px 0;
-    padding-bottom: 36px;
-    font-size: 14px;
-    line-height: 17px;
-  }
-}
-
-@media screen and (max-width: 425px) {
-  .footer {
-    margin: 48px 19px 0;
-    padding-bottom: 36px;
-    font-size: 14px;
-    line-height: 17px;
   }
 }
 
@@ -45,7 +24,11 @@
   .footer {
     margin: 48px 19px 0;
     padding-bottom: 36px;
-    font-size: 14px;
-    line-height: 17px;
+  }
+}
+
+@media screen and (min-width: 425px) and (max-width: 1278px) {
+  .footer {
+    margin: 48px 27px 36px 27px;
   }
 }

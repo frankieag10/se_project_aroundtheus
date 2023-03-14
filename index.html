@@ -16,22 +16,23 @@
     <header class="header">
         <img class="header__logo" src="./images/vectors/aroundtheUS.svg" alt="Around the U.S." />
     </header>
-    <section class="profile">
-        <img class="profile__image" src="./images/jacques-cousteau.jpg" alt="Profile image" />
-        <div class="profile__paragraph">
-            <h1 class="profile__title">Jacques Cousteau</h1>
-            <button class="profile__buttons-edit" type="button">
-                <img class="profile__buttons-edit-icon" src="./images/vectors/pen.svg" alt="Edit profile" />
-            </button>
-            <p class="profile__subtitle">Explorer</p>
-        </div>
-
-        <button class="profile__buttons-add" type="button">
-            <img class="profile__buttons-edit-icon" src="./images/vectors/plus.svg" alt="Add photo" />
-        </button>
-    </section>
-
     <main class="page">
+        <section class="profile">
+            <img class="profile__image" src="./images/jacques-cousteau.jpg" alt="Profile image" />
+            <div class="profile__paragraph">
+                <h1 class="profile__title">Jacques Cousteau</h1>
+                <button class="profile__buttons-edit" type="button">
+                    <img class="profile__buttons-edit-icon" src="./images/vectors/pen.svg" alt="Edit profile" />
+                </button>
+                <p class="profile__subtitle">Explorer</p>
+            </div>
+
+            <button class="profile__buttons-add" type="button">
+                <img class="profile__buttons-edit-icon" src="./images/vectors/plus.svg" alt="Add photo" />
+            </button>
+        </section>
+
+
         <section class="cards">
             <ul class="cards__list">
                 <li class="card">
@@ -77,11 +78,11 @@
                     </div>
                 </li>
             </ul>
-            <footer class="footer">
-                <p class="footer__text">© 2023 around the U.S</p>
-            </footer>
         </section>
     </main>
+    <footer class="footer page__section">
+        <p class="footer__text">© 2023 around the U.S</p>
+    </footer>
 </body>
 
 </html>
