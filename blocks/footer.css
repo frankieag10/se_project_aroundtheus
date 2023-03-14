@@ -8,21 +8,18 @@
   margin-left: 19px;
 }
 
-.footer_page__section {
-  max-width: 880px;
-  width: 100%;
-  position: relative;
-  margin: 0 auto;
-}
-
 .footer__text {
   color: #545454;
   margin: 0;
 }
 
 @media screen and (max-width: 320px) {
-  .footer_page__section {
+  .footer {
     margin: 48px 19px 0;
     padding-bottom: 36px;
+    max-width: 880px;
+    width: 100%;
+    position: relative;
+    margin: 0 auto;
   }
 }
