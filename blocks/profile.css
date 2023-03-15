@@ -25,7 +25,6 @@
   margin: 0 0 16px 3.75px;
   padding: 0;
   font-family: "Inter", sans-serif;
-  font-size: 42px;
   font-weight: 500;
   line-height: 48px;
   letter-spacing: 0em;
@@ -130,15 +129,13 @@
 
 @media screen and (max-width: 879px) {
   .profile {
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  }
-}
-
-@media screen and (max-width: 425px) {
-  .profile__title {
-    font-size: 30px;
+    overflow: hidden;
+    text-overflow: hidden;
+    white-space: nowrap;
   }
 }
 
@@ -170,8 +167,9 @@
 
 @media screen and (max-width: 768px) {
   .profile__subtitle {
-    margin: auto;
     padding: 0;
+    align-self: flex-end;
+    font-family: "Inter", sans-serif;
     font-size: 18px;
     font-weight: 400;
     line-height: 22px;
@@ -179,12 +177,21 @@
     text-align: left;
     grid-area: subtitle;
   }
+
   .profile__buttons {
     display: flex;
     margin: 0 0 86px 16px;
   }
 
   .profile__buttons-add {
+    opacity: 1;
+    max-width: 150px;
+    max-height: 50px;
+    background-color: rgba(0, 0, 0, 0);
+    border: 2px solid #fff;
+    border-radius: 2px;
+    transition: opacity 0.3s linear;
+    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;

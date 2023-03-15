@@ -1,6 +1,6 @@
 .header {
   background-color: #000;
-  max-width: 1280px;
+  max-width: 880px;
   margin: auto;
   color: #fff;
   display: flex;
@@ -23,5 +23,17 @@
     width: 126px;
     height: 24px;
     margin: 28px 0 32px 27px;
+  }
+}
+
+@media screen and (max-width: 870px) {
+  .header {
+    margin: 0;
+  }
+
+  .header__logo {
+    width: 126px;
+    height: 24px;
+    margin: 28px 167px 32px 27px;
   }
 }
