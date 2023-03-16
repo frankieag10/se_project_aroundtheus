@@ -18,6 +18,9 @@
     margin: 48px 19px 0;
     padding-bottom: 36px;
   }
+  .footer__text {
+    font-size: 14px;
+  }
 }
 
 @media screen and (max-width: 768px) {

@@ -19,7 +19,7 @@
 
 @media screen and (max-width: 620px) {
   .page__section {
-    margin: 0 20px;
+    margin: auto;
     max-width: calc(100% - 40px);
   }
 }

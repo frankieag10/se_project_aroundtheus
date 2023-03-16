@@ -1,5 +1,13 @@
 .header {
+  background-color: black;
+  width: 100%;
+  border-bottom: solid 1px #545454;
   margin-top: 45px;
+}
+
+.header__logo {
+  margin-top: 45px;
+  margin-bottom: 41px;
 }
 
 .header__border {
@@ -10,5 +18,12 @@
 @media screen and (max-width: 900px) {
   .header {
     margin-top: 45px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .header {
+    max-width: 100%;
+    margin-top: 0;
   }
 }
