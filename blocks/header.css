@@ -1,8 +1,9 @@
 .header {
   background-color: black;
   width: 100%;
-  border-bottom: solid 1px #545454;
+  border-bottom: solid 1px rgba(138, 121, 121, 0.892);
   margin-top: 45px;
+  opacity: 0.892;
 }
 
 .header__logo {

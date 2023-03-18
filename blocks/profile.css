@@ -44,6 +44,9 @@
   grid-area: title;
   margin: 0;
   font-family: "Inter", sans-serif;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .profile__description {
@@ -51,6 +54,9 @@
   line-height: 1.2;
   font-weight: 400;
   grid-area: description;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .profile__image {
@@ -82,6 +88,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    max-width: 196px;
   }
   .profile__description {
     width: 100%;
@@ -91,6 +98,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    max-width: 282px;
   }
 
   .profile__add-button {
