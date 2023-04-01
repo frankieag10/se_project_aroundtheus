@@ -47,18 +47,17 @@ function closePopup() {
 }
 
 function getCardElement(cardData) {
-  //clone the template element with all its content and store it in a cardElement
   const cardElement = cardTemplate.cloneNode(true);
-  //access the card title and image and store them in variables
+
   const cardImageEl = cardElement.querySelector(".card__image");
   const cardTitleEl = cardElement.querySelector(".card__title");
-  //set the path to the image to the link feild of the object
+
   cardImageEl.src = cardData.link;
-  //set the image alt text to the name feild of the object
+
   cardImageEl.alt = cardData.name;
-  //set the card title to the name feild of the object, too
+
   cardTitleEl.textContent = cardData.name;
-  //return the ready html element with the filled in-data
+
   return cardElement;
 }
 
