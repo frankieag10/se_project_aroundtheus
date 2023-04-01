@@ -41,8 +41,6 @@ const cardListEl = document.querySelector(".cards__list");
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
 
-const cardImage = document.querySelector(".card__image");
-
 /*_________________________FUNCTIONS__________________________*/
 function closePopup() {
   profileEditModal.classList.remove("modal__opened");

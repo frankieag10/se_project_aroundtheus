@@ -11,11 +11,11 @@
   justify-content: center;
   padding: 0 19px;
   display: none;
+  margin: 0;
 }
 
 .modal__opened {
   display: flex;
-  margin: 0;
 }
 
 .modal__container {
@@ -95,22 +95,22 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .modal__save-button:hover {
   opacity: 0.8;
-  border-radius: 2px;
 }
 
 @media screen and (min-width: 320px) and (max-width: 768px) {
   .modal__close-button {
-    margin: 0 -40px 13px;
+    margin-left: -40px;
+    margin-bottom: 13px;
     height: 26px;
     width: 26px;
   }
 
   .modal__container {
-    margin-top: 13px;
     padding: 19px;
   }
 
@@ -118,11 +118,13 @@
     font-size: 18px;
     margin-bottom: 75px;
     padding: 3px;
+    line-height: 21.7px;
   }
 
   .modal__save-button {
     padding: 25px;
     margin-top: 45px;
     font-size: 14px;
+    line-height: 16.94px;
   }
 }
