@@ -41,6 +41,11 @@
   border: none;
   cursor: pointer;
   background-repeat: no-repeat;
+  transition: opacity 1s ease;
+}
+
+.card__like-button:hover {
+  opacity: 0.5s;
 }
 
 .card__like-button_active {
