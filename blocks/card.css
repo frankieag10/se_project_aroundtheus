@@ -35,7 +35,7 @@
 }
 
 .card__like-button {
-  background: transparent url(../images/vectors/likeheart.svg);
+  background: transparent url("../images/vectors/likeheart.svg");
   width: 21px;
   height: 18px;
   border: none;
@@ -43,6 +43,24 @@
   background-repeat: no-repeat;
 }
 
-.card__like-button:hover {
+.card__like-button_active {
+  background-image: url("../images/vectors/solidHeart.svg");
+}
+
+.card__button-delete {
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  margin: 18px 15px 0 249px;
+  transition: opacity 1s ease;
+  background: url(../images/vectors/SolidTrash.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  border: none;
+  cursor: pointer;
+}
+
+.card__buttton-delete:hover {
   opacity: 0.5;
 }

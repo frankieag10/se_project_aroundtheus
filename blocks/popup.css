@@ -1,0 +1,14 @@
+.popup__image {
+  max-width: 100%;
+}
+
+#popup-caption {
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  position: absolute;
+  top: calc(100% + 10px);
+  margin: 0;
+}
+
+@media screen and (min-width: 320px) and (max-width: 768px) {
+}
