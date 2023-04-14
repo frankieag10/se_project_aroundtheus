@@ -54,7 +54,7 @@
     </div>
     <!--add card modal-->
     <div class="modal" id="add-card-modal">
-        <div class="modal__container">
+        <div class="modal__container" id="modal-container-image-open">
             <button class="modal__close-button" id="modal-close-button" type="button"></button>
             <h3 class="modal__heading">New Place</h3>
             <form class="modal__form" id="add-card-form">
@@ -62,14 +62,14 @@
                     name="title" placeholder="Title">
                 <input class="modal__form-input modal__form-input_type_url" type="text" name="url"
                     id="url-description-input" placeholder="Image URL">
-                <button class="modal__save-button" type="submit">Save</button>
+                <button class="modal__save-button" type="submit">Create</button>
             </form>
         </div>
     </div>
     <!--image popup-->
     <div class="modal" id="modal-image-popup">
         <div class="modal__container modal__container_type_image">
-            <button class="modal__close-button" id="modal-close-button" type="button"></button>
+            <button class="modal__close-button" id="modal-close-image-button" type="button"></button>
             <img src="" alt="" class="popup__image">
             <p class="modal__caption" id="popup-caption"></p>
             </form>

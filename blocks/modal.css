@@ -141,4 +141,14 @@
     font-size: 14px;
     line-height: 16.94px;
   }
+
+  #modal-close-image-button {
+    padding: 0;
+    top: -10px;
+    margin-left: 15px;
+  }
+
+  #modal-container-image-open {
+    padding: 0;
+  }
 }

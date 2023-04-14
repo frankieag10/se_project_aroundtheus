@@ -43,10 +43,10 @@ const modalImagePopUpButton = document.querySelector("#modal-image-popup");
 /*______________________BUTTONS AND OTHER DOM NODES_______________________ */
 const profileEditButton = document.querySelector(".profile__edit-button");
 const profileModalCloseButton = editProfileModal.querySelector(
-  "#modal-close-button"
+  ".modal__close-button"
 );
 const addCardModalCloseButton = addCardModal.querySelector(
-  "#modal-close-button"
+  ".modal__close-button"
 );
 const profileTitle = document.querySelector(".profile__title");
 const profileDescription = document.querySelector(".profile__description");
