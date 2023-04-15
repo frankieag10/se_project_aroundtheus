@@ -36,7 +36,7 @@ const addCardModal = document.querySelector("#add-card-modal");
 const profileFormElement = editProfileModal.querySelector(".modal__form");
 const addCardFormElement = addCardModal.querySelector(".modal__form");
 const imageModal = document.querySelector("#modal-image-popup");
-const modalImageElement = imageModal.querySelector(".popup__image");
+const modalImageElement = imageModal.querySelector("#popup__image");
 const popUpCaption = document.querySelector("#popup-caption");
 const modalImagePopUpButton = document.querySelector("#modal-image-popup");
 
