@@ -38,7 +38,10 @@ const addCardFormElement = addCardModal.querySelector(".modal__form");
 const imageModal = document.querySelector("#modal-image-popup");
 const modalImageElement = imageModal.querySelector("#popup__image");
 const popUpCaption = document.querySelector("#popup-caption");
-const modalImagePopUpButton = document.querySelector("#modal-image-popup");
+const modalImagePopUp = document.querySelector("#modal-image-popup");
+const modalCloseImageButton = document.querySelector(
+  "#modal-close-image-button"
+);
 
 /*______________________BUTTONS AND OTHER DOM NODES_______________________ */
 const profileEditButton = document.querySelector(".profile__edit-button");
@@ -77,7 +80,6 @@ function openModal(modal) {
   modal.classList.add("modal_opened");
 }
 
-//test//////
 function deleteCard(card) {
   card.classList.remove("card");
 }
@@ -100,25 +102,26 @@ function handleAddCardFormSubmit(e) {
   const link = cardUrlInput.value;
   renderCard({ name, link }, cardsWrap);
   closeModal(addCardModal);
+  e.target.reset();
 }
 
-function getCardElement(Data) {
+function getCardElement(data) {
   const cardElement = cardTemplate.cloneNode(true);
   const cardImage = cardElement.querySelector(".card__image");
   const cardTitle = cardElement.querySelector(".card__title");
   const likeButton = cardElement.querySelector(".card__like-button");
   const cardButtonDelete = cardElement.querySelector(".card__button-delete");
-  const cardImageRemove = cardElement.querySelector(".card");
 
   //deleteCard//
   cardButtonDelete.addEventListener("click", () => {
-    cardElement.remove(cardImageRemove);
+    cardElement.remove();
   });
 
   //open card popup//
   cardImage.addEventListener("click", () => {
-    modalImageElement.src = Data.link;
-    popUpCaption.textContent = Data.name;
+    modalImageElement.src = data.link;
+    popUpCaption.textContent = data.name;
+    popUpCaption.alt = data.name;
     openModal(imageModal);
   });
 
@@ -126,9 +129,9 @@ function getCardElement(Data) {
     likeButton.classList.toggle("card__like-button_active");
   });
 
-  cardImage.src = Data.link;
-  cardImage.alt = Data.name;
-  cardTitle.textContent = Data.name;
+  cardImage.src = data.link;
+  cardImage.alt = data.name;
+  cardTitle.textContent = data.name;
 
   return cardElement;
 }
@@ -161,9 +164,8 @@ addCardModalCloseButton.addEventListener("click", () =>
   closeModal(addCardModal)
 );
 
-//close image popup//
-modalImagePopUpButton.addEventListener("click", () =>
-  closeModal(modalImagePopUpButton)
+modalCloseImageButton.addEventListener("click", () =>
+  closeModal(modalImagePopUp)
 );
 
 initialCards.forEach((cardData) => renderCard(cardData, cardsWrap));
