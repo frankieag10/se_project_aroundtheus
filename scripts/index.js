@@ -80,10 +80,6 @@ function openModal(modal) {
   modal.classList.add("modal_opened");
 }
 
-function deleteCard(card) {
-  card.classList.remove("card");
-}
-
 function renderCard(cardData) {
   const cardElement = getCardElement(cardData);
   cardsWrap.prepend(cardElement);
@@ -160,9 +156,6 @@ addCardModalCloseButton.addEventListener("click", () =>
 
 //open new card button//
 addNewCardButton.addEventListener("click", () => openModal(addCardModal));
-addCardModalCloseButton.addEventListener("click", () =>
-  closeModal(addCardModal)
-);
 
 modalCloseImageButton.addEventListener("click", () =>
   closeModal(modalImagePopUp)
