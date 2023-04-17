@@ -120,8 +120,8 @@ function getCardElement(data) {
   //open card popup//
   cardImage.addEventListener("click", () => {
     modalImageElement.src = data.link;
+    modalImageElement.alt = data.name;
     popUpCaption.textContent = data.name;
-    popUpCaption.alt = data.name;
     openModal(imageModal);
   });
 
