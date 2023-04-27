@@ -72,12 +72,16 @@ const cardUrlInput = addCardFormElement.querySelector(
 );
 
 /*_________________________FUNCTIONS__________________________*/
+
+//close modal function//
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
+  document.removeEventListener("keydown", handleEscKeyDown);
 }
-
+//open modal function//
 function openModal(modal) {
   modal.classList.add("modal_opened");
+  document.addEventListener("keydown", handleEscKeyDown);
 }
 
 function renderCard(cardData) {
@@ -132,6 +136,31 @@ function getCardElement(data) {
   return cardElement;
 }
 
+//close profile,newcard,and image oustside of modal function//
+const clickOffPopUp = (modalElement) => {
+  modalElement.addEventListener("mousedown", function (evt) {
+    if (evt.target === evt.currentTarget) {
+      closeModal(modalElement);
+    }
+  });
+};
+
+//close modal by clicking outside of new card image modal//
+clickOffPopUp(imageModal);
+
+//close modal by clicking outside of edit profile modal//
+clickOffPopUp(editProfileModal);
+
+//close modal by clicking outside of new modal form//
+clickOffPopUp(addCardModal);
+
+//close profile,newcard, and image modals with ESC KEY function//
+const handleEscKeyDown = (evt) => {
+  if (evt.key === "Escape") {
+    const openedModal = document.querySelector(".modal_opened");
+    closeModal(openedModal);
+  }
+};
 /* ____________________EVENT LISTENERS__________________*/
 
 profileFormElement.addEventListener("submit", handleProfileFormSubmit);
@@ -157,8 +186,11 @@ addCardModalCloseButton.addEventListener("click", () =>
 //open new card button//
 addNewCardButton.addEventListener("click", () => openModal(addCardModal));
 
+//close image modal "X button"//
 modalCloseImageButton.addEventListener("click", () =>
   closeModal(modalImagePopUp)
 );
+
+//close new cardpop up outside image//
 
 initialCards.forEach((cardData) => renderCard(cardData, cardsWrap));

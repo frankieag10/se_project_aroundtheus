@@ -68,8 +68,8 @@
 
 .modal__form-input {
   height: 27px;
-  margin-bottom: 30px;
   border: none;
+  margin-bottom: 30px;
   font-family: "Inter", sans-serif;
   font-size: 14px;
   font-weight: 400;
@@ -115,6 +115,26 @@
   width: auto;
   background: none;
 }
+
+.modal__form-input_type_error {
+  border-bottom: 1px solid #ff0000;
+}
+
+/*modal error text inputs*/
+.modal__error_message {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  color: #ff0000;
+  visibility: hidden;
+}
+
+.modal__error_message_visible {
+  visibility: visible;
+}
+
 @media screen and (min-width: 320px) and (max-width: 768px) {
   .modal__close-button {
     bottom: calc(100% + 20px);
