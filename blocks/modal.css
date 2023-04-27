@@ -129,7 +129,7 @@
 }
 
 /*modal error text inputs*/
-.modal__error_message {
+.modal__error-message {
   font-family: "Inter";
   font-style: normal;
   font-weight: 400;
@@ -139,7 +139,7 @@
   visibility: hidden;
 }
 
-.modal__error_message_visible {
+.modal__error-message_visible {
   visibility: visible;
 }
 
