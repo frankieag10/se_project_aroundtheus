@@ -69,7 +69,7 @@
 .modal__form-input {
   height: 27px;
   border: none;
-  margin-bottom: 30px;
+  margin-top: 30px;
   font-family: "Inter", sans-serif;
   font-size: 14px;
   font-weight: 400;
@@ -105,6 +105,14 @@
 
 .modal__save-button:hover {
   opacity: 0.8;
+}
+
+.modal__save-button_disable {
+  background-color: #ffffff;
+  border-color: rgba(0, 0, 0, 0.2);
+  color: rgba(0, 0, 0, 0.2);
+  pointer-events: none;
+  border: solid 1px;
 }
 
 .modal__container_type_image {
