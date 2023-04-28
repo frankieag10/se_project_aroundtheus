@@ -9,6 +9,7 @@
   width: 282px;
   height: 282px;
   object-fit: cover;
+  cursor: pointer;
 }
 
 .card__title {
@@ -41,7 +42,7 @@
   border: none;
   cursor: pointer;
   background-repeat: no-repeat;
-  transition: opacity 1s ease;
+  transition: opacity 0.3s ease;
 }
 
 .card__like-button:hover {
@@ -63,7 +64,7 @@
   background-size: contain;
   border: none;
   cursor: pointer;
-  transition: opacity 1s ease;
+  transition: opacity 0.3s ease;
 }
 
 .card__button-delete:hover {

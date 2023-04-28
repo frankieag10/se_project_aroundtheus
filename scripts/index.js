@@ -103,6 +103,7 @@ function handleAddCardFormSubmit(e) {
   renderCard({ name, link }, cardsWrap);
   closeModal(addCardModal);
   e.target.reset();
+  toggleButtonState;
 }
 
 function getCardElement(data) {
@@ -167,11 +168,13 @@ profileFormElement.addEventListener("submit", handleProfileFormSubmit);
 addCardFormElement.addEventListener("submit", handleAddCardFormSubmit);
 
 //open profile edit button//
-profileEditButton.addEventListener("click", () => {
+function openEditProfileModal() {
   nameInput.value = profileTitle.textContent;
   jobInput.value = profileDescription.textContent;
   openModal(editProfileModal);
-});
+}
+
+profileEditButton.addEventListener("click", openEditProfileModal);
 
 //close profile edit button//
 profileModalCloseButton.addEventListener("click", () =>
