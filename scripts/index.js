@@ -103,7 +103,7 @@ function handleAddCardFormSubmit(e) {
   renderCard({ name, link }, cardsWrap);
   closeModal(addCardModal);
   e.target.reset();
-  toggleButtonState();
+  toggleButtonState(profileSaveButton);
 }
 
 function getCardElement(data) {
