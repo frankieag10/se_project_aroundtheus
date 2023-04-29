@@ -102,8 +102,16 @@ function handleAddCardFormSubmit(e) {
   const link = cardUrlInput.value;
   renderCard({ name, link }, cardsWrap);
   closeModal(addCardModal);
+  const disableButtons = document.querySelectorAll(
+    ".modal__save-button_inactive"
+  );
+  disableButtons.forEach((button) => {
+    button.disabled = true;
+    button.classList.add(".modal__save-button_inactive");
+  });
+
   e.target.reset();
-  toggleButtonState(modalSaveButton);
+  toggleButtonState(name, link, { inactiveButtonClass });
 }
 
 function getCardElement(data) {
@@ -123,6 +131,7 @@ function getCardElement(data) {
     modalImageElement.src = data.link;
     modalImageElement.alt = data.name;
     popUpCaption.textContent = data.name;
+
     openModal(imageModal);
   });
 
