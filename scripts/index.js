@@ -54,7 +54,7 @@ const addCardModalCloseButton = addCardModal.querySelector(
 const profileTitle = document.querySelector(".profile__title");
 const profileDescription = document.querySelector(".profile__description");
 const addNewCardButton = document.querySelector(".profile__add-button");
-const profileSaveButton = document.querySelector(".modal__save-button");
+const modalSaveButton = document.querySelector(".modal__save-button");
 
 /*_______FORM DATA________*/
 const nameInput = profileFormElement.querySelector(
@@ -103,7 +103,7 @@ function handleAddCardFormSubmit(e) {
   renderCard({ name, link }, cardsWrap);
   closeModal(addCardModal);
   e.target.reset();
-  toggleButtonState(profileSaveButton);
+  toggleButtonState(modalSaveButton);
 }
 
 function getCardElement(data) {
