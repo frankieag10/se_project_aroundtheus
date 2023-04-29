@@ -102,16 +102,14 @@ function handleAddCardFormSubmit(e) {
   const link = cardUrlInput.value;
   renderCard({ name, link }, cardsWrap);
   closeModal(addCardModal);
-  const disableButtons = document.querySelectorAll(
-    ".modal__save-button_inactive"
-  );
-  disableButtons.forEach((button) => {
-    button.disabled = true;
-    button.classList.add(".modal__save-button_inactive");
-  });
-
   e.target.reset();
-  toggleButtonState(name, link, { inactiveButtonClass });
+  const inputEls = [
+    ...addCardFormElement.querySelectorAll(config.inputSelector),
+  ];
+  const submitButton = addCardFormElement.querySelector(
+    config.submitButtonSelector
+  );
+  toggleButtonState(inputEls, submitButton, config);
 }
 
 function getCardElement(data) {
