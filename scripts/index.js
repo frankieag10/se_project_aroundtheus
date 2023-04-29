@@ -103,7 +103,7 @@ function handleAddCardFormSubmit(e) {
   renderCard({ name, link }, cardsWrap);
   closeModal(addCardModal);
   e.target.reset();
-  toggleButtonState;
+  toggleButtonState();
 }
 
 function getCardElement(data) {
