@@ -51,6 +51,7 @@ const profileModalCloseButton = editProfileModal.querySelector(
 const addCardModalCloseButton = addCardModal.querySelector(
   ".modal__close-button"
 );
+
 const profileTitle = document.querySelector(".profile__title");
 const profileDescription = document.querySelector(".profile__description");
 const addNewCardButton = document.querySelector(".profile__add-button");
@@ -106,16 +107,14 @@ function handleAddCardFormSubmit(e) {
   const inputEls = [
     ...addCardFormElement.querySelectorAll(config.inputSelector),
   ];
-  const inactiveButton = [
-    ...addCardFormElement.querySelectorAll(config.inactiveButtonClass),
-  ];
   const submitButton = addCardFormElement.querySelector(
     config.submitButtonSelector
   );
-  inactiveButton.forEach((button) => {
-    button.disabled = true;
-  });
-  toggleButtonState(inputEls, submitButton, inactiveButton, config);
+
+  submitButton.classList.add(config.inactiveButtonClass);
+  submitButton.disabled = true;
+
+  toggleButtonState(inputEls, submitButton, config);
   e.target.reset();
 }
 
