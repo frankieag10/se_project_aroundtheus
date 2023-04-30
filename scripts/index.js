@@ -106,10 +106,17 @@ function handleAddCardFormSubmit(e) {
   const inputEls = [
     ...addCardFormElement.querySelectorAll(config.inputSelector),
   ];
+  const inactiveButton = [
+    ...addCardFormElement.querySelectorAll(config.inactiveButtonClass),
+  ];
   const submitButton = addCardFormElement.querySelector(
     config.submitButtonSelector
   );
-  toggleButtonState(inputEls, submitButton, config);
+  inactiveButton.forEach((button) => {
+    button.disabled = true;
+  });
+  toggleButtonState(inputEls, submitButton, inactiveButton, config);
+  e.target.reset();
 }
 
 function getCardElement(data) {
