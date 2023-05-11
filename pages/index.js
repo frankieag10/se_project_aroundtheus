@@ -1,3 +1,8 @@
+import FormValidator from "../components/FormValidator.js";
+import Card from "../components/Card.js";
+import { openModal, closeModal } from "../utils.js";
+import utils from "../utils.js";
+
 const initialCards = [
   {
     name: "Yosemite Valley",
@@ -75,7 +80,7 @@ const cardUrlInput = addCardFormElement.querySelector(
 /*_________________________FUNCTIONS__________________________*/
 
 //close modal function//
-function closeModal(modal) {
+/*function closeModal(modal) {
   modal.classList.remove("modal_opened");
   document.removeEventListener("keydown", handleEscKeyDown);
 }
@@ -84,7 +89,7 @@ function openModal(modal) {
   modal.classList.add("modal_opened");
   document.addEventListener("keydown", handleEscKeyDown);
 }
-
+// render cards//
 function renderCard(cardData) {
   const cardElement = getCardElement(cardData);
   cardsWrap.prepend(cardElement);
@@ -210,3 +215,12 @@ modalCloseImageButton.addEventListener("click", () =>
 //close new cardpop up outside image//
 
 initialCards.forEach((cardData) => renderCard(cardData, cardsWrap));
+
+//VALIDATION//
+const validationSettings = {
+  inputSelector: ".modal__form-input",
+  submitButtonSelector: ".modal__save-button",
+  inactiveButtonClass: "modal__save-button_inactive",
+  inputErrorClass: "modal__form-input_type_error",
+  errorClass: "modal__error-message_visible",
+};
