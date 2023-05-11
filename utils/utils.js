@@ -56,7 +56,9 @@ class utils {
     );
 
     // Render initial cards
-    CardButtons.forEach((cardData) => renderCard(cardData, this.cardsWrap));
+    this._initialCards.forEach((cardData) =>
+      renderCard(cardData, this.cardsWrap)
+    );
   }
 }
 
