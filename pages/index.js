@@ -1,9 +1,8 @@
 import FormValidator from "../components/FormValidator.js";
 import Card from "../components/Card.js";
-import { openModal, closeModal } from "../utils.js";
-import utils from "../utils.js";
+import utils from "../utils/utils.js";
 
-const initialCards = [
+export const initialCards = [
   {
     name: "Yosemite Valley",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
@@ -40,9 +39,9 @@ const editProfileModal = document.querySelector("#edit-modal");
 const addCardModal = document.querySelector("#add-card-modal");
 const profileFormElement = editProfileModal.querySelector(".modal__form");
 const addCardFormElement = addCardModal.querySelector(".modal__form");
-const imageModal = document.querySelector("#modal-image-popup");
-const modalImageElement = imageModal.querySelector("#popup__image");
-const popUpCaption = document.querySelector("#popup-caption");
+export const imageModal = document.querySelector("#modal-image-popup");
+export const modalImageElement = imageModal.querySelector("#popup__image");
+export const popUpCaption = document.querySelector("#popup-caption");
 const modalImagePopUp = document.querySelector("#modal-image-popup");
 const modalCloseImageButton = document.querySelector(
   "#modal-close-image-button"
@@ -80,17 +79,17 @@ const cardUrlInput = addCardFormElement.querySelector(
 /*_________________________FUNCTIONS__________________________*/
 
 //close modal function//
-/*function closeModal(modal) {
+export function closeModal(modal) {
   modal.classList.remove("modal_opened");
   document.removeEventListener("keydown", handleEscKeyDown);
 }
 //open modal function//
-function openModal(modal) {
+export function openModal(modal) {
   modal.classList.add("modal_opened");
   document.addEventListener("keydown", handleEscKeyDown);
 }
 // render cards//
-function renderCard(cardData) {
+export function renderCard(cardData) {
   const cardElement = getCardElement(cardData);
   cardsWrap.prepend(cardElement);
 }

@@ -8,28 +8,31 @@ import {
 class utils {
   constructor() {
     // Selecting DOM elements
-    this.nameInput = document.querySelector("#name-input");
-    this.jobInput = document.querySelector("#job-input");
-    this.profileTitle = document.querySelector(".profile__title");
-    this.profileDescription = document.querySelector(".profile__description");
-    this.editProfileModal = document.querySelector("#edit-profile-modal");
-    this.profileEditButton = document.querySelector(".profile__edit-button");
-    this.profileModalCloseButton = document.querySelector(
+    this._nameInput = document.querySelector("#name-input");
+    this._jobInput = document.querySelector("#job-input");
+    this._profileTitle = document.querySelector(".profile__title");
+    this._profileDescription = document.querySelector(".profile__description");
+    this._editProfileModal = document.querySelector("#edit-profile-modal");
+    this._profileEditButton = document.querySelector(".profile__edit-button");
+    this._profileModalCloseButton = document.querySelector(
       ".profile-modal__close-button"
     );
-    this.addCardModal = document.querySelector("#add-card-modal");
-    this.addNewCardButton = document.querySelector(".add-new-card-button");
-    this.addCardModalCloseButton = document.querySelector(
+    this._addCardModal = document.querySelector("#add-card-modal");
+
+    this._addNewCardButton = document.querySelector(".add-new-card-button");
+    this._addCardModalCloseButton = document.querySelector(
       ".add-card-modal__close-button"
     );
-    this.modalImagePopUp = document.querySelector("#modal-image-popup");
-    this.modalCloseImageButton = document.querySelector(
+    this._modalImagePopUp = document.querySelector("#modal-image-popup");
+    this._modalCloseImageButton = document.querySelector(
       ".modal__close-image-button"
     );
-    this.cardsWrap = document.querySelector(".cards__wrap");
+    this._cardsWrap = document.querySelector(".cards__wrap");
     this._initialCards = initialCards;
 
     this.openEditProfileModal = this.openEditProfileModal.bind(this);
+    this.closeModal = closeModal;
+    this._openModal = openModal;
   }
 
   // Open profile edit button
@@ -61,6 +64,4 @@ class utils {
     );
   }
 }
-
-// Export the class instance
 export default new utils();

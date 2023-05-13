@@ -1,15 +1,13 @@
-import { openModal } from "../utils/utils.js";
-import {
-  imageModal,
-  modalCaptionElement,
-  modalImageElement,
-} from "../pages/index.js";
+import utils from "../utils/utils.js";
+import { imageModal, popUpCaption, modalImageElement } from "../pages/index.js";
 
-export default class Card {
+class Card {
   constructor(data, cardSelector) {
     this._name = data.name;
     this._link = data.link;
     this._cardSelector = cardSelector;
+    this._imageModal = imageModal;
+    this._openModal = openModal;
   }
 
   _setEventListeners() {
@@ -38,7 +36,7 @@ export default class Card {
   _handlePreviewImage(e) {
     e.preventDefault();
     openModal(imageModal);
-    modalCaptionElement.textContent = this._name;
+    popUpCaption.textContent = this._name;
     modalImageElement.src = this._link;
     modalImageElement.alt = this._name;
   }
@@ -63,3 +61,4 @@ export default class Card {
     return this._element;
   }
 }
+export default new Card();
