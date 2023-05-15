@@ -11,10 +11,12 @@ export default class Utils {
     this.clickOffPopUp = this._modalElement.querySelector(
       "#profile-add-button"
     );
+
+    this._clickOffPopUp();
   }
 
   // Close profile, new card, and image outside of modal function
-  clickOffPopUp(modalElement) {
+  _clickOffPopUp(modalElement) {
     modalElement.addEventListener("mousedown", (evt) => {
       if (evt.target === evt.currentTarget) {
         this.closeModal(modalElement);
@@ -65,7 +67,7 @@ export default class Utils {
   }
 
   //open card popup
-  openCardPopup() {
+  openCardPopup(data) {
     modalImageElement.src = data.link;
     modalImageElement.alt = data.name;
     popUpCaption.textContent = data.name;
