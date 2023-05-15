@@ -1,6 +1,8 @@
 import formValidator from "../components/FormValidator.js";
+console.log(formValidator);
 import Card from "../components/Card.js";
-import utils from "../utils/utils.js";
+console.log(Card);
+import { handleEscKeyDown, openModal, closeModal } from "../utils/utils.js";
 
 const initialCards = [
   {
@@ -40,7 +42,7 @@ const addCardModal = document.querySelector("#add-card-modal");
 const profileFormElement = editProfileModal.querySelector(".modal__form");
 const addCardFormElement = addCardModal.querySelector(".modal__form");
 const imageModal = document.querySelector("#modal-image-popup");
-//const modalImageElement = imageModal.querySelector("#popup__image");
+const modalImageElement = imageModal.querySelector("#popup__image");
 const popUpCaption = document.querySelector("#popup-caption");
 const modalImagePopUp = document.querySelector("#modal-image-popup");
 const modalCloseImageButton = document.querySelector(
@@ -87,19 +89,21 @@ const cardUrlInput = addCardFormElement.querySelector(
 function openModal(modal) {
   document.addEventListener("keydown", handleEscKeyDown);
 }*/
+
 // render cards//
 function renderCard(cardData) {
   const cardElement = getCardElement(cardData);
   cardsWrap.prepend(cardElement);
 }
 
+//profile submit
 function handleProfileFormSubmit(e) {
   e.preventDefault();
   profileTitle.textContent = nameInput.value;
   profileDescription.textContent = jobInput.value;
   closeModal(editProfileModal);
 }
-
+//add card form submit
 function handleAddCardFormSubmit(e) {
   e.preventDefault();
   const name = cardTitleInput.value;
@@ -142,6 +146,7 @@ function getCardElement(data) {
     openModal(imageModal);
   });*/
 
+  //like Button
   likeButton.addEventListener("click", () => {
     likeButton.classList.toggle("card__like-button_active");
   });
@@ -184,7 +189,7 @@ profileFormElement.addEventListener("submit", handleProfileFormSubmit);
 addCardFormElement.addEventListener("submit", handleAddCardFormSubmit);
 
 //open profile edit button//
-/*function openEditProfileModal() {
+function openEditProfileModal() {
   nameInput.value = profileTitle.textContent;
   jobInput.value = profileDescription.textContent;
   openModal(editProfileModal);
@@ -209,7 +214,7 @@ addNewCardButton.addEventListener("click", () => openModal(addCardModal));
 modalCloseImageButton.addEventListener("click", () =>
   closeModal(modalImagePopUp)
 );
-*/
+
 //close new cardpop up outside image//
 
 initialCards.forEach((cardData) => renderCard(cardData, cardsWrap));
@@ -244,6 +249,8 @@ export const AllButtons = {
   profileDescription: ".profile__description",
   addNewCardButton: ".profile__add-button",
   modalSaveButton: ".modal__save-button",
+  modalCloseImageButton: () =>
+    document.querySelector("#modal-close-image-button"),
 };
 
 export const formData = {
