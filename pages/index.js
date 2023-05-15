@@ -86,12 +86,12 @@ const cardUrlInput = addCardFormElement.querySelector(
 //open modal function//
 function openModal(modal) {
   document.addEventListener("keydown", handleEscKeyDown);
-}
+}*/
 // render cards//
 function renderCard(cardData) {
   const cardElement = getCardElement(cardData);
   cardsWrap.prepend(cardElement);
-}*/
+}
 
 function handleProfileFormSubmit(e) {
   e.preventDefault();
@@ -209,10 +209,10 @@ addNewCardButton.addEventListener("click", () => openModal(addCardModal));
 modalCloseImageButton.addEventListener("click", () =>
   closeModal(modalImagePopUp)
 );
-
+*/
 //close new cardpop up outside image//
 
-initialCards.forEach((cardData) => renderCard(cardData, cardsWrap));*/
+initialCards.forEach((cardData) => renderCard(cardData, cardsWrap));
 
 //VALIDATION//
 export const validationSettings = {

@@ -5,8 +5,13 @@ import {
   validationSettings,
 } from "../pages/index.js";
 
-class Utils {
-  constructor() {}
+export default class Utils {
+  constructor({ modalEl }) {
+    this._modalElement = document.querySelector(modalEl);
+    this.clickOffPopUp = this._modalElement.querySelector(
+      "#profile-add-button"
+    );
+  }
 
   // Close profile, new card, and image outside of modal function
   clickOffPopUp(modalElement) {
@@ -69,13 +74,11 @@ class Utils {
   }
   // Exported functions
 
-  openPopup(modal) {
+  openCardPopup(modal) {
     this.openModal(modal);
   }
 
-  closePopup(modal) {
+  closeCardPopup(modal) {
     this.closeModal(modal);
   }
 }
-
-export default Utils;

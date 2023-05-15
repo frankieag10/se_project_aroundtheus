@@ -1,4 +1,9 @@
-import { validationSettings } from "../pages/index.js";
+import {
+  validationSettings,
+  wrappers,
+  AllButtons,
+  formData,
+} from "../pages/index.js";
 
 export default class FormValidator {
   constructor(settings, formEl) {
