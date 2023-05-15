@@ -9,20 +9,20 @@ import {
 const handleEscKeyDown = (evt) => {
   if (evt.key === "Escape") {
     const openedModal = document.querySelector(".modal_opened");
-    this.closeModal(openedModal);
+    closeModal(openedModal);
   }
 };
 
 // Close modal function
 const closeModal = (modal) => {
   modal.classList.remove("modal_opened");
-  document.removeEventListener("keydown", this.handleEscKeyDown);
+  document.removeEventListener("keydown", handleEscKeyDown);
 };
 
 // Open modal function
 const openModal = (modal) => {
   modal.classList.add("modal_opened");
-  document.addEventListener("keydown", this.handleEscKeyDown);
+  document.addEventListener("keydown", handleEscKeyDown);
 };
 
 export { handleEscKeyDown, openModal, closeModal };
