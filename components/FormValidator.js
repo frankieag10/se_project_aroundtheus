@@ -1,10 +1,12 @@
-class FormValidator {
+import { validationSettings } from "../pages/index.js";
+
+export default class FormValidator {
   constructor(settings, formEl) {
     this._inputSelector = settings.inputSelector;
     this._submitButtonSelector = settings.submitButtonSelector;
     this._inactiveButtonClass = settings.inactiveButtonClass;
     this._inputErrorClass = settings.inputErrorClass;
-    this._errorClass = settings.errorClass; // Corrected variable name
+    this._errorClass = settings.errorClass;
 
     this._form = formEl;
     this._inputEls = [...this._form.querySelectorAll(this._inputSelector)];
@@ -26,7 +28,6 @@ class FormValidator {
   }
 
   _toggleButtonState() {
-    const hasInvalidInputEls = this._hasInvalidInput();
     this._submitButton.classList.toggle(
       this._inactiveButtonClass,
       hasInvalidInputEls
@@ -39,7 +40,6 @@ class FormValidator {
   }
 
   _checkInputValidity(inputEl) {
-    // Corrected method declaration
     const errorMessageEl = this._form.querySelector(`#${inputEl.id}-error`);
     if (inputEl.validity.valid) {
       this._hideInputError(inputEl, errorMessageEl);
@@ -49,7 +49,6 @@ class FormValidator {
   }
 
   _setEventListeners() {
-    // Corrected method declaration
     this._toggleButtonState();
 
     this._inputEls.forEach((inputEl) => {
@@ -61,11 +60,8 @@ class FormValidator {
   }
 
   enableValidation() {
-    // Corrected method declaration
     this._form.addEventListener("submit", (e) => {
       e.preventDefault();
     });
   }
 }
-
-export default FormValidator;

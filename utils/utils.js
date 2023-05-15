@@ -1,67 +1,81 @@
 import {
-  openModal,
-  closeModal,
-  renderCard,
-  initialCards,
+  wrappers,
+  AllButtons,
+  formData,
+  validationSettings,
 } from "../pages/index.js";
 
-class utils {
-  constructor() {
-    // Selecting DOM elements
-    this._nameInput = document.querySelector("#name-input");
-    this._jobInput = document.querySelector("#job-input");
-    this._profileTitle = document.querySelector(".profile__title");
-    this._profileDescription = document.querySelector(".profile__description");
-    this._editProfileModal = document.querySelector("#edit-profile-modal");
-    this._profileEditButton = document.querySelector(".profile__edit-button");
-    this._profileModalCloseButton = document.querySelector(
-      ".profile-modal__close-button"
-    );
-    this._addCardModal = document.querySelector("#add-card-modal");
+class Utils {
+  constructor() {}
 
-    this._addNewCardButton = document.querySelector(".add-new-card-button");
-    this._addCardModalCloseButton = document.querySelector(
-      ".add-card-modal__close-button"
-    );
-    this._modalImagePopUp = document.querySelector("#modal-image-popup");
-    this._modalCloseImageButton = document.querySelector(
-      ".modal__close-image-button"
-    );
-    this._cardsWrap = document.querySelector(".cards__wrap");
-    this._initialCards = initialCards;
+  // Close profile, new card, and image outside of modal function
+  clickOffPopUp(modalElement) {
+    modalElement.addEventListener("mousedown", (evt) => {
+      if (evt.target === evt.currentTarget) {
+        this.closeModal(modalElement);
+      }
+    });
+  }
 
-    this.openEditProfileModal = this.openEditProfileModal.bind(this);
-    this.closeModal = closeModal;
-    this._openModal = openModal;
+  // Close modal by clicking outside of new card image modal
+  clickOffPopUp(imageModal) {
+    this.clickOffPopUp(imageModal);
+  }
+
+  // Close modal by clicking outside of edit profile modal
+  clickOffPopUp(editProfileModal) {
+    this.clickOffPopUp(editProfileModal);
+  }
+
+  // Close modal by clicking outside of new modal form
+  clickOffPopUp(addCardModal) {
+    this.clickOffPopUp(addCardModal);
+  }
+
+  // Close profile, new card, and image modals with ESC KEY function
+  handleEscKeyDown(evt) {
+    if (evt.key === "Escape") {
+      const openedModal = document.querySelector(".modal_opened");
+      this.closeModal(openedModal);
+    }
+  }
+
+  // Close modal function
+  closeModal(modal) {
+    modal.classList.remove("modal_opened");
+    document.removeEventListener("keydown", this.handleEscKeyDown);
+  }
+
+  // Open modal function
+  openModal(modal) {
+    modal.classList.add("modal_opened");
+    document.addEventListener("keydown", this.handleEscKeyDown);
   }
 
   // Open profile edit button
   openEditProfileModal() {
-    this.nameInput.value = this.profileTitle.textContent;
-    this.jobInput.value = this.profileDescription.textContent;
-    openModal(this.editProfileModal);
+    nameInput.value = profileTitle.textContent;
+    jobInput.value = profileDescription.textContent;
+    this.openModal(editProfileModal);
   }
 
-  CardButtons() {
-    // Event listeners
-    this.profileEditButton.addEventListener("click", this.openEditProfileModal);
-    this.profileModalCloseButton.addEventListener("click", () =>
-      closeModal(this.editProfileModal)
-    );
-    this.addCardModalCloseButton.addEventListener("click", () =>
-      closeModal(this.addCardModal)
-    );
-    this.addNewCardButton.addEventListener("click", () =>
-      openModal(this.addCardModal)
-    );
-    this.modalCloseImageButton.addEventListener("click", () =>
-      closeModal(this.modalImagePopUp)
-    );
+  //open card popup
+  openCardPopup() {
+    modalImageElement.src = data.link;
+    modalImageElement.alt = data.name;
+    popUpCaption.textContent = data.name;
 
-    // Render initial cards
-    this._initialCards.forEach((cardData) =>
-      renderCard(cardData, this.cardsWrap)
-    );
+    this.openModal(imageModal);
+  }
+  // Exported functions
+
+  openPopup(modal) {
+    this.openModal(modal);
+  }
+
+  closePopup(modal) {
+    this.closeModal(modal);
   }
 }
-export default new utils();
+
+export default Utils;

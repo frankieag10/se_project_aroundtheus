@@ -1,24 +1,30 @@
-import utils from "../utils/utils.js";
-import { imageModal, popUpCaption, modalImageElement } from "../pages/index.js";
+import Utils from "../utils/utils.js";
+import {
+  wrappers,
+  validationSettings,
+  AllButtons,
+  formData,
+} from "../pages/index.js";
 
-class Card {
+export default class Card {
   constructor(data, cardSelector) {
     this._name = data.name;
     this._link = data.link;
     this._cardSelector = cardSelector;
-    this._imageModal = imageModal;
-    this._openModal = openModal;
+    this._cardTemplate = cardTemplate;
+    this._wrappers = wrappers;
   }
 
   _setEventListeners() {
     const likeButton = this._element.querySelector(".card__like-button");
     const deleteButton = this._element.querySelector(".card__delete-button");
 
-    likeButton.addEventListener("click", () => this._handleLikeIcon());
-    deleteButton.addEventListener("click", () => this._handleDeleteIcon());
+    likeButton.addEventListener("click", this._handleLikeIcon.bind(this));
+    deleteButton.addEventListener("click", this._handleDeleteIcon.bind(this));
 
-    this._cardImage.addEventListener("click", (e) =>
-      this._handlePreviewImage(e)
+    this._cardImage.addEventListener(
+      "click",
+      this._handlePreviewImage.bind(this)
     );
   }
 
@@ -61,4 +67,6 @@ class Card {
     return this._element;
   }
 }
-export default new Card();
+
+//const Cards = new Card();
+//Cards.method();

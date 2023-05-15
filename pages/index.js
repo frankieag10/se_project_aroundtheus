@@ -1,8 +1,8 @@
-import FormValidator from "../components/FormValidator.js";
+import formValidator from "../components/FormValidator.js";
 import Card from "../components/Card.js";
 import utils from "../utils/utils.js";
 
-export const initialCards = [
+const initialCards = [
   {
     name: "Yosemite Valley",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
@@ -29,7 +29,7 @@ export const initialCards = [
   },
 ];
 
-const cardTemplate = document
+export const cardTemplate = document
   .querySelector("#card-template")
   .content.querySelector(".card");
 
@@ -39,9 +39,9 @@ const editProfileModal = document.querySelector("#edit-modal");
 const addCardModal = document.querySelector("#add-card-modal");
 const profileFormElement = editProfileModal.querySelector(".modal__form");
 const addCardFormElement = addCardModal.querySelector(".modal__form");
-export const imageModal = document.querySelector("#modal-image-popup");
-export const modalImageElement = imageModal.querySelector("#popup__image");
-export const popUpCaption = document.querySelector("#popup-caption");
+const imageModal = document.querySelector("#modal-image-popup");
+//const modalImageElement = imageModal.querySelector("#popup__image");
+const popUpCaption = document.querySelector("#popup-caption");
 const modalImagePopUp = document.querySelector("#modal-image-popup");
 const modalCloseImageButton = document.querySelector(
   "#modal-close-image-button"
@@ -79,20 +79,19 @@ const cardUrlInput = addCardFormElement.querySelector(
 /*_________________________FUNCTIONS__________________________*/
 
 //close modal function//
-export function closeModal(modal) {
+/*function closeModal(modal) {
   modal.classList.remove("modal_opened");
   document.removeEventListener("keydown", handleEscKeyDown);
 }
 //open modal function//
-export function openModal(modal) {
-  modal.classList.add("modal_opened");
+function openModal(modal) {
   document.addEventListener("keydown", handleEscKeyDown);
 }
 // render cards//
-export function renderCard(cardData) {
+function renderCard(cardData) {
   const cardElement = getCardElement(cardData);
   cardsWrap.prepend(cardElement);
-}
+}*/
 
 function handleProfileFormSubmit(e) {
   e.preventDefault();
@@ -135,13 +134,13 @@ function getCardElement(data) {
   });
 
   //open card popup//
-  cardImage.addEventListener("click", () => {
+  /*cardImage.addEventListener("click", () => {
     modalImageElement.src = data.link;
     modalImageElement.alt = data.name;
     popUpCaption.textContent = data.name;
 
     openModal(imageModal);
-  });
+  });*/
 
   likeButton.addEventListener("click", () => {
     likeButton.classList.toggle("card__like-button_active");
@@ -155,7 +154,7 @@ function getCardElement(data) {
 }
 
 //close profile,newcard,and image oustside of modal function//
-const clickOffPopUp = (modalElement) => {
+/*const clickOffPopUp = (modalElement) => {
   modalElement.addEventListener("mousedown", function (evt) {
     if (evt.target === evt.currentTarget) {
       closeModal(modalElement);
@@ -178,14 +177,14 @@ const handleEscKeyDown = (evt) => {
     const openedModal = document.querySelector(".modal_opened");
     closeModal(openedModal);
   }
-};
+};*/
 /* ____________________EVENT LISTENERS__________________*/
 
 profileFormElement.addEventListener("submit", handleProfileFormSubmit);
 addCardFormElement.addEventListener("submit", handleAddCardFormSubmit);
 
 //open profile edit button//
-function openEditProfileModal() {
+/*function openEditProfileModal() {
   nameInput.value = profileTitle.textContent;
   jobInput.value = profileDescription.textContent;
   openModal(editProfileModal);
@@ -213,13 +212,47 @@ modalCloseImageButton.addEventListener("click", () =>
 
 //close new cardpop up outside image//
 
-initialCards.forEach((cardData) => renderCard(cardData, cardsWrap));
+initialCards.forEach((cardData) => renderCard(cardData, cardsWrap));*/
 
 //VALIDATION//
-const validationSettings = {
+export const validationSettings = {
   inputSelector: ".modal__form-input",
   submitButtonSelector: ".modal__save-button",
   inactiveButtonClass: "modal__save-button_inactive",
   inputErrorClass: "modal__form-input_type_error",
   errorClass: "modal__error-message_visible",
+};
+
+export const wrappers = {
+  cardsWrap: ".cards__list",
+  editProfileModal: "#edit-modal",
+  addCardModal: "#add-card-modal",
+  profileFormElement: ".modal__form",
+  addCardFormElement: ".modal__form",
+  imageModal: "#modal-image-popup",
+  modalImageElement: () => document.querySelector("#popup__image"),
+  popUpCaptionaddCardFormElement: "#popup-caption",
+  modalImagePopUpaddCardFormElement: "#modal-image-popup",
+  modalCloseImageButtonaddCardFormElement: "#modal-close-image-button",
+};
+
+export const AllButtons = {
+  profileEditButton: ".profile__edit-button",
+  profileModalCloseButton: ".modal__close-button",
+  addCardModalCloseButton: ".modal__close-button",
+  profileTitle: ".profile__title",
+  profileDescription: ".profile__description",
+  addNewCardButton: ".profile__add-button",
+  modalSaveButton: ".modal__save-button",
+};
+
+export const formData = {
+  nameInput: profileFormElement.querySelector(".modal__form-input_type_name"),
+  jobInput: profileFormElement.querySelector(
+    ".modal__form-input_type_description"
+  ),
+  cardTitleInput: addCardFormElement.querySelector(
+    ".modal__form-input_type_title"
+  ),
+  cardUrlInput: addCardFormElement.querySelector(".modal__form-input_type_url"),
 };
