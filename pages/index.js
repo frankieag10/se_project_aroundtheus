@@ -1,7 +1,5 @@
 import formValidator from "../components/FormValidator.js";
-console.log(formValidator);
 import Card from "../components/Card.js";
-console.log(Card);
 import { handleEscKeyDown, openModal, closeModal } from "../utils/utils.js";
 
 const initialCards = [
@@ -227,7 +225,6 @@ modalCloseImageButton.addEventListener("click", () =>
 );
 
 //close new cardpop up outside image//
-
 initialCards.forEach((cardData) => renderCard(cardData, cardsWrap));
 
 //VALIDATION//
