@@ -18,6 +18,7 @@ export default class FormValidator {
     this._submitButton = this._form.querySelector(this._submitButtonSelector);
 
     this._setEventListeners();
+    this._checkFormValidity();
   }
 
   _showInputError(inputEl, errorMessageEl) {
@@ -33,16 +34,21 @@ export default class FormValidator {
   }
 
   _toggleButtonState() {
-    const hasInvalidInputEls = this._hasInvalidInput();
+    const hasInvalidInputs = this._hasInvalidInputs();
+    const hasEmptyInputs = this._hasEmptyInputs();
     this._submitButton.classList.toggle(
       this._inactiveButtonClass,
-      hasInvalidInputEls
+      hasInvalidInputs || hasEmptyInputs
     );
-    this._submitButton.disabled = hasInvalidInputEls;
+    this._submitButton.disabled = hasInvalidInputs || hasEmptyInputs;
   }
 
-  _hasInvalidInput() {
+  _hasInvalidInputs() {
     return this._inputEls.some((inputEl) => !inputEl.validity.valid);
+  }
+
+  _hasEmptyInputs() {
+    return this._inputEls.some((inputEl) => inputEl.value.trim() === "");
   }
 
   _checkInputValidity(inputEl) {
@@ -55,12 +61,10 @@ export default class FormValidator {
   }
 
   _setEventListeners() {
-    this._toggleButtonState();
-
     this._inputEls.forEach((inputEl) => {
       inputEl.addEventListener("input", () => {
         this._checkInputValidity(inputEl);
-        this._toggleButtonState();
+        this._checkFormValidity();
       });
     });
   }
@@ -69,5 +73,22 @@ export default class FormValidator {
     this._form.addEventListener("submit", (e) => {
       e.preventDefault();
     });
+  }
+
+  resetValidation() {
+    this._inputEls.forEach((inputEl) => {
+      const errorMessageEl = this._form.querySelector(`#${inputEl.id}-error`);
+      this._hideInputError(inputEl, errorMessageEl);
+    });
+    this._checkFormValidity();
+  }
+
+  _checkFormValidity() {
+    const isFormValid = !this._hasInvalidInputs() && !this._hasEmptyInputs();
+    this._submitButton.disabled = !isFormValid;
+    this._submitButton.classList.toggle(
+      this._inactiveButtonClass,
+      !isFormValid
+    );
   }
 }

@@ -1,4 +1,4 @@
-import formValidator from "../components/FormValidator.js";
+import FormValidator from "../components/FormValidator.js";
 import Card from "../components/Card.js";
 import { handleEscKeyDown, openModal, closeModal } from "../utils/utils.js";
 
@@ -90,7 +90,7 @@ function openModal(modal) {
 
 // render cards//
 function renderCard(cardData) {
-  const cardElement = getCardElement(cardData);
+  const cardElement = newCard(cardData);
   cardsWrap.prepend(cardElement);
 }
 
@@ -102,13 +102,13 @@ function handleProfileFormSubmit(e) {
   closeModal(editProfileModal);
 }
 
-function toggleButtonState(inputElements, buttonElement, buttonSelector) {
+/*function toggleButtonState(inputElements, buttonElement, buttonSelector) {
   const isAnyInvalid = inputElements.some(
     (inputElement) => !inputElement.validity.valid
   );
   buttonElement.classList.toggle(buttonSelector, isAnyInvalid);
   buttonElement.disabled = isAnyInvalid;
-}
+}*/
 
 //add card form submit
 function handleAddCardFormSubmit(e) {
@@ -118,7 +118,8 @@ function handleAddCardFormSubmit(e) {
   renderCard({ name, link }, cardsWrap);
   closeModal(addCardModal);
   e.target.reset();
-  const inputEls = [
+}
+/* const inputEls = [
     ...addCardFormElement.querySelectorAll(".modal__form-input"),
   ];
   const submitButton = addCardFormElement.querySelector(".modal__save-button");
@@ -130,11 +131,11 @@ function handleAddCardFormSubmit(e) {
   e.target.reset();
 
   // Enable submit button when the modal is opened again
-  submitButton.classList.remove("modal__save-button_inactive");
+  /*submitButton.classList.remove("modal__save-button_inactive");
   submitButton.disabled = false;
-}
+}*/
 
-function getCardElement(data) {
+function newCard(data) {
   const cardElement = cardTemplate.cloneNode(true);
   const cardImage = cardElement.querySelector(".card__image");
   const cardTitle = cardElement.querySelector(".card__title");
@@ -155,7 +156,7 @@ function getCardElement(data) {
     openModal(imageModal);
   });
 
-  //like Button
+  //like Button//
   likeButton.addEventListener("click", () => {
     likeButton.classList.toggle("card__like-button_active");
   });
@@ -272,11 +273,11 @@ export const formData = {
   cardUrlInput: addCardFormElement.querySelector(".modal__form-input_type_url"),
 };
 
-const editformValidator = new formValidator(
+const editformValidator = new FormValidator(
   validationSettings,
   profileFormElement
 );
-const addFormValidator = new formValidator(
+const addFormValidator = new FormValidator(
   validationSettings,
   addCardFormElement
 );

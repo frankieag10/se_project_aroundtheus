@@ -1,4 +1,4 @@
-//import { handleEscKeyDown, openModal, closeModal } from "../utils/utils.js";
+import { openModal } from "../utils/utils.js";
 import {
   wrappers,
   validationSettings,
@@ -12,7 +12,6 @@ export default class Card {
     this._link = data.link;
     this._cardSelector = cardSelector;
     this._cardTemplate = cardTemplate;
-    this._wrappers = wrappers;
   }
 
   _setEventListeners() {
@@ -29,9 +28,7 @@ export default class Card {
   }
 
   _handleLikeIcon() {
-    this._element
-      .querySelector(".card__like-button")
-      .classList.toggle("card__like-button_active");
+    this._likeButton.classList.toggle("card__like-button_active");
   }
 
   _handleDeleteIcon() {
@@ -58,7 +55,6 @@ export default class Card {
     this._element = this._getTemplate();
     this._cardImage = this._element.querySelector(".card__image");
     this._cardTitle = this._element.querySelector(".card__title");
-
     this._cardImage.src = this._link;
     this._cardTitle.textContent = this._name;
     this._cardImage.alt = this._name;
@@ -67,6 +63,3 @@ export default class Card {
     return this._element;
   }
 }
-
-//const Cards = new Card();
-//Cards.method();
