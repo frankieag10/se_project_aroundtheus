@@ -3,6 +3,7 @@ console.log(formValidator);
 import Card from "../components/Card.js";
 console.log(Card);
 import { handleEscKeyDown, openModal, closeModal } from "../utils/utils.js";
+import FormValidator from "../components/FormValidator.js";
 
 const initialCards = [
   {
@@ -103,6 +104,15 @@ function handleProfileFormSubmit(e) {
   profileDescription.textContent = jobInput.value;
   closeModal(editProfileModal);
 }
+
+function toggleButtonState(inputElements, buttonElement, buttonSelector) {
+  const isAnyInvalid = inputElements.some(
+    (inputElement) => !inputElement.validity.valid
+  );
+  buttonElement.classList.toggle(buttonSelector, isAnyInvalid);
+  buttonElement.disabled = isAnyInvalid;
+}
+
 //add card form submit
 function handleAddCardFormSubmit(e) {
   e.preventDefault();
@@ -112,17 +122,19 @@ function handleAddCardFormSubmit(e) {
   closeModal(addCardModal);
   e.target.reset();
   const inputEls = [
-    ...addCardFormElement.querySelectorAll(config.inputSelector),
+    ...addCardFormElement.querySelectorAll(".modal__form-input"),
   ];
-  const submitButton = addCardFormElement.querySelector(
-    config.submitButtonSelector
-  );
+  const submitButton = addCardFormElement.querySelector(".modal__save-button");
 
-  submitButton.classList.add(config.inactiveButtonClass);
+  submitButton.classList.add("modal__save-button_inactive");
   submitButton.disabled = true;
 
-  toggleButtonState(inputEls, submitButton, config);
+  toggleButtonState(inputEls, submitButton);
   e.target.reset();
+
+  // Enable submit button when the modal is opened again
+  submitButton.classList.remove("modal__save-button_inactive");
+  submitButton.disabled = false;
 }
 
 function getCardElement(data) {
