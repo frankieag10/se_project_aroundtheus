@@ -3,7 +3,6 @@ console.log(formValidator);
 import Card from "../components/Card.js";
 console.log(Card);
 import { handleEscKeyDown, openModal, closeModal } from "../utils/utils.js";
-import FormValidator from "../components/FormValidator.js";
 
 const initialCards = [
   {
@@ -150,13 +149,13 @@ function getCardElement(data) {
   });
 
   //open card popup//
-  /*cardImage.addEventListener("click", () => {
+  cardImage.addEventListener("click", () => {
     modalImageElement.src = data.link;
     modalImageElement.alt = data.name;
     popUpCaption.textContent = data.name;
 
     openModal(imageModal);
-  });*/
+  });
 
   //like Button
   likeButton.addEventListener("click", () => {
@@ -171,7 +170,7 @@ function getCardElement(data) {
 }
 
 //close profile,newcard,and image oustside of modal function//
-/*const clickOffPopUp = (modalElement) => {
+const clickOffPopUp = (modalElement) => {
   modalElement.addEventListener("mousedown", function (evt) {
     if (evt.target === evt.currentTarget) {
       closeModal(modalElement);
@@ -189,7 +188,7 @@ clickOffPopUp(editProfileModal);
 clickOffPopUp(addCardModal);
 
 //close profile,newcard, and image modals with ESC KEY function//
-const handleEscKeyDown = (evt) => {
+/*const handleEscKeyDown = (evt) => {
   if (evt.key === "Escape") {
     const openedModal = document.querySelector(".modal_opened");
     closeModal(openedModal);
@@ -275,3 +274,12 @@ export const formData = {
   ),
   cardUrlInput: addCardFormElement.querySelector(".modal__form-input_type_url"),
 };
+
+const editformValidator = new formValidator(
+  validationSettings,
+  profileFormElement
+);
+const addFormValidator = new formValidator(
+  validationSettings,
+  addCardFormElement
+);
