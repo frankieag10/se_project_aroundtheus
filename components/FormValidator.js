@@ -36,11 +36,7 @@ export default class FormValidator {
   _toggleButtonState() {
     const hasInvalidInputs = this._hasInvalidInputs();
     const hasEmptyInputs = this._hasEmptyInputs();
-    this._submitButton.classList.toggle(
-      this._inactiveButtonClass,
-      hasInvalidInputs || hasEmptyInputs
-    );
-    this._submitButton.disabled = hasInvalidInputs || hasEmptyInputs;
+    this._submitButton.classList.toggle(this._inactiveButtonClass);
   }
 
   _hasInvalidInputs() {
@@ -63,7 +59,6 @@ export default class FormValidator {
   _setEventListeners() {
     this._inputEls.forEach((inputEl) => {
       inputEl.addEventListener("input", () => {
-        this._checkInputValidity(inputEl);
         this._checkFormValidity();
       });
     });
@@ -80,7 +75,8 @@ export default class FormValidator {
       const errorMessageEl = this._form.querySelector(`#${inputEl.id}-error`);
       this._hideInputError(inputEl, errorMessageEl);
     });
-    this._checkFormValidity();
+    this._submitButton.classList.add(this._inactiveButtonClass);
+    this._submitButton.disabled = true;
   }
 
   _checkFormValidity() {
