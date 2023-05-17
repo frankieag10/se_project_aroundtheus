@@ -40,6 +40,7 @@ const addCardModal = document.querySelector("#add-card-modal");
 const profileFormElement = editProfileModal.querySelector(".modal__form");
 const addCardFormElement = addCardModal.querySelector(".modal__form");
 const imageModal = document.querySelector("#modal-image-popup");
+const cardButtonDelete = document.querySelector(".card__button-delete");
 const modalImageElement = imageModal.querySelector("#popup__image");
 const popUpCaption = document.querySelector("#popup-caption");
 const modalSaveButton = document.querySelector(".modal__save-button");
@@ -79,10 +80,10 @@ const cardUrlInput = addCardFormElement.querySelector(
 /*_________________________FUNCTIONS__________________________*/
 
 // render cards//
-function renderCard(cardData) {
-  const cardElement = newCard(cardData);
+/*function renderCard(cardData) {
+  const cardElement = CreateCard(cardData);
   cardsWrap.prepend(cardElement);
-}
+}*/
 
 //profile submit
 function handleProfileFormSubmit(e) {
@@ -102,7 +103,7 @@ function handleAddCardFormSubmit(e) {
   e.target.reset();
 }
 
-function newCard(data) {
+/*function CreateCard(data) {
   const cardElement = cardTemplate.cloneNode(true);
   const cardImage = cardElement.querySelector(".card__image");
   const cardTitle = cardElement.querySelector(".card__title");
@@ -133,7 +134,7 @@ function newCard(data) {
   cardTitle.textContent = data.name;
 
   return cardElement;
-}
+}*/
 
 //close profile,newcard,and image oustside of modal function//
 const clickOffPopUp = (modalElement) => {
