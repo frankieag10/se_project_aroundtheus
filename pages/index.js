@@ -33,7 +33,10 @@ export const cardTemplate = document
   .querySelector("#card-template")
   .content.querySelector(".card");
 
+//////////////////
 ////MODALS////____
+//////////////////
+
 const cardsWrap = document.querySelector(".cards__list");
 const editProfileModal = document.querySelector("#edit-modal");
 const addCardModal = document.querySelector("#add-card-modal");
@@ -43,7 +46,10 @@ const imageModal = document.querySelector("#modal-image-popup");
 const modalImageElement = imageModal.querySelector("#popup__image");
 const popUpCaption = document.querySelector("#popup-caption");
 
+///////////////////////
 /////BUTTONS////_______
+///////////////////////
+
 const profileEditButton = document.querySelector(".profile__edit-button");
 const profileModalCloseButton = editProfileModal.querySelector(
   ".modal__close-button"
@@ -60,7 +66,10 @@ const modalCloseImageButton = document.querySelector(
   "#modal-close-image-button"
 );
 
+///////////////////////////
 ////FORM DATA////__________
+///////////////////////////
+
 const nameInput = profileFormElement.querySelector(
   ".modal__form-input_type_name"
 );
@@ -75,7 +84,9 @@ const cardUrlInput = addCardFormElement.querySelector(
   ".modal__form-input_type_url"
 );
 
+//////////////////////////////
 ////____EVENT HANDLERS____////
+//////////////////////////////
 
 //profile submit
 function handleProfileFormSubmit(e) {
@@ -95,7 +106,9 @@ function handleAddCardFormSubmit(e) {
   e.target.reset();
 }
 
+/////////////////////////
 //___FUNCTIONS___//
+////////////////////////
 
 //close profile,newcard,and image oustside of modal function//
 const clickOffPopUp = (modalElement) => {
@@ -115,7 +128,9 @@ clickOffPopUp(editProfileModal);
 //close modal by clicking outside of new modal form//
 clickOffPopUp(addCardModal);
 
+//////////////////////////////////////////////////////////
 /* ____________________EVENT LISTENERS__________________*/
+//////////////////////////////////////////////////////////
 
 profileFormElement.addEventListener("submit", handleProfileFormSubmit);
 addCardFormElement.addEventListener("submit", handleAddCardFormSubmit);
@@ -150,7 +165,10 @@ addNewCardButton.addEventListener("click", () => {
 //close image modal "X button"//
 modalCloseImageButton.addEventListener("click", () => closeModal(imageModal));
 
+//////////////////////
 //____VALIDATION____//
+//////////////////////
+
 export const validationSettings = {
   inputSelector: ".modal__form-input",
   submitButtonSelector: ".modal__save-button",
@@ -188,7 +206,10 @@ function renderCard(cardData, list) {
 //rendering cards from array//
 initialCards.forEach((cardData) => renderCard(cardData, cardsWrap));
 
+///////////////////////
 ////____EXPORTS____ ///
+///////////////////////
+
 export const Modals = {
   cardsWrap: ".cards__list",
   editProfileModal: "#edit-modal",
