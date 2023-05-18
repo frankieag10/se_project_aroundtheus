@@ -143,7 +143,7 @@ addCardModalCloseButton.addEventListener("click", () =>
 //open new card button//
 //(disabled submit button everytime it opens with reset validation)//
 addNewCardButton.addEventListener("click", () => {
-  addFormValidator.resetValidation();
+  addFormValidator._resetValidation();
   openModal(addCardModal);
 });
 
@@ -163,16 +163,28 @@ const editformValidator = new FormValidator(
   validationSettings,
   profileFormElement
 );
+
+editformValidator._enableValidation();
+
 const addFormValidator = new FormValidator(
   validationSettings,
   addCardFormElement
 );
 
-//render Function//
-function renderCard(cardData, list) {
-  const card = new Card(cardData, "#card-template");
-  list.prepend(card.getView());
+addFormValidator._enableValidation();
+
+//create card function//
+function createCard(item) {
+  const card = new Card(item, "#card-template");
+  return card.getView();
 }
+
+//render card//
+function renderCard(cardData, list) {
+  const card = createCard(cardData);
+  list.prepend(card);
+}
+
 //rendering cards from array//
 initialCards.forEach((cardData) => renderCard(cardData, cardsWrap));
 

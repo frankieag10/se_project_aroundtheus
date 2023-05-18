@@ -17,9 +17,8 @@ export default class FormValidator {
     this._inputEls = [...this._form.querySelectorAll(this._inputSelector)];
     this._submitButton = this._form.querySelector(this._submitButtonSelector);
 
-    this._setEventListeners();
-    this._checkFormValidity();
-    //this._toggleButtonState();
+    this._enableValidation();
+    this._toggleButtonState();
   }
 
   _showInputError(inputEl, errorMessageEl) {
@@ -32,16 +31,6 @@ export default class FormValidator {
     inputEl.classList.remove(this._inputErrorClass);
     errorMessageEl.textContent = "";
     errorMessageEl.classList.remove(this._errorClass);
-  }
-
-  _toggleButtonState() {
-    const hasInvalidInputs = this._hasInvalidInputs();
-    const hasEmptyInputs = this._hasEmptyInputs();
-    this._submitButton.classList.toggle(
-      this._inactiveButtonClass,
-      hasInvalidInputs || hasEmptyInputs
-    );
-    this._submitButton.disabled = hasInvalidInputs || hasEmptyInputs;
   }
 
   _hasInvalidInputs() {
@@ -65,19 +54,19 @@ export default class FormValidator {
     this._inputEls.forEach((inputEl) => {
       inputEl.addEventListener("input", () => {
         this._checkInputValidity(inputEl);
-        this._checkFormValidity();
-        //this._toggleButtonState();
+        this._toggleButtonState();
       });
     });
   }
 
-  enableValidation() {
+  _enableValidation() {
     this._form.addEventListener("submit", (e) => {
       e.preventDefault();
     });
+    this._setEventListeners();
   }
 
-  resetValidation() {
+  _resetValidation() {
     this._inputEls.forEach((inputEl) => {
       const errorMessageEl = this._form.querySelector(`#${inputEl.id}-error`);
       this._hideInputError(inputEl, errorMessageEl);
@@ -86,7 +75,7 @@ export default class FormValidator {
     this._submitButton.disabled = true;
   }
 
-  _checkFormValidity() {
+  _toggleButtonState() {
     const isFormValid = !this._hasInvalidInputs() && !this._hasEmptyInputs();
     this._submitButton.disabled = !isFormValid;
     this._submitButton.classList.toggle(
