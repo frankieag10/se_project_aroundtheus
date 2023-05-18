@@ -182,14 +182,14 @@ const editformValidator = new FormValidator(
   profileFormElement
 );
 
-editformValidator._enableValidation();
+editformValidator.enableValidation();
 
 const addFormValidator = new FormValidator(
   validationSettings,
   addCardFormElement
 );
 
-addFormValidator._enableValidation();
+addFormValidator.enableValidation();
 
 //create card function//
 function createCard(item) {
