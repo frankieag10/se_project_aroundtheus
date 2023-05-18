@@ -1,6 +1,6 @@
 import {
   validationSettings,
-  wrappers,
+  Modals,
   AllButtons,
   formData,
 } from "../pages/index.js";

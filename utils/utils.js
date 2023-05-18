@@ -1,5 +1,5 @@
 import {
-  wrappers,
+  Modals,
   AllButtons,
   formData,
   validationSettings,

@@ -1,9 +1,12 @@
 import { openModal } from "../utils/utils.js";
 import {
-  wrappers,
+  Modals,
   validationSettings,
   AllButtons,
   formData,
+  modalImageElement,
+  popUpCaption,
+  imageModal,
 } from "../pages/index.js";
 
 export default class Card {
@@ -11,33 +14,33 @@ export default class Card {
     this._name = data.name;
     this._link = data.link;
     this._cardSelector = cardSelector;
-    this._cardTemplate = cardTemplate;
   }
 
   _setEventListeners() {
-    const likeButton = this._elment.querySelector(".card__like-button");
-    const deleteButton = this._elment.querySelector(".card__delete-button");
+    const likeButton = this._element.querySelector(".card__like-button");
+    const deleteButton = this._element.querySelector(".card__button-delete");
+
     likeButton.addEventListener("click", () => this._handleLikeIcon());
     deleteButton.addEventListener("click", () => this._handleDeleteIcon());
 
     this._cardImage.addEventListener("click", (e) =>
-      this._handlePrveviewImage(e)
+      this._handlePreviewImage(e)
     );
   }
 
   _handleLikeIcon() {
-    this._elment
+    this._element
       .querySelector(".card__like-button")
       .classList.toggle("card__like-button_active");
   }
   _handleDeleteIcon() {
-    this._elment.remove();
-    this._elment = null;
+    this._element.remove();
+    this._element = null;
   }
-  _handlePrveviewImage(e) {
+  _handlePreviewImage(e) {
     e.preventDefault();
     openModal(imageModal);
-    modalCaptionElement.textContent = this._name;
+    popUpCaption.textContent = this._name;
     modalImageElement.src = this._link;
     modalImageElement.alt = this._name;
   }
@@ -50,15 +53,14 @@ export default class Card {
   }
 
   getView() {
-    this._elment = this._getTemplate();
-    this._cardImage = this._elment.querySelector(".card__image");
-    this._cardTitle = this._elment.querySelector(".card__title");
-
+    this._element = this._getTemplate();
+    this._cardImage = this._element.querySelector(".card__image");
+    this._cardTitle = this._element.querySelector(".card__title");
     this._cardImage.src = this._link;
     this._cardTitle.textContent = this._name;
     this._cardImage.alt = this._name;
 
     this._setEventListeners();
-    return this._elment;
+    return this._element;
   }
 }
