@@ -158,7 +158,7 @@ addCardModalCloseButton.addEventListener("click", () =>
 //open new card button//
 //(disabled submit button everytime it opens with reset validation)//
 addNewCardButton.addEventListener("click", () => {
-  addFormValidator._resetValidation();
+  addFormValidator.resetValidation();
   openModal(addCardModal);
 });
 

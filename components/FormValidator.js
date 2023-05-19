@@ -17,7 +17,7 @@ export default class FormValidator {
     this._inputEls = [...this._form.querySelectorAll(this._inputSelector)];
     this._submitButton = this._form.querySelector(this._submitButtonSelector);
 
-    this.enableValidation();
+    //this.enableValidation();
     this._toggleButtonState();
   }
 
@@ -66,7 +66,7 @@ export default class FormValidator {
     this._setEventListeners();
   }
 
-  _resetValidation() {
+  resetValidation() {
     this._inputEls.forEach((inputEl) => {
       const errorMessageEl = this._form.querySelector(`#${inputEl.id}-error`);
       this._hideInputError(inputEl, errorMessageEl);
