@@ -1,10 +1,3 @@
-import {
-  Modals,
-  AllButtons,
-  formData,
-  validationSettings,
-} from "../pages/index.js";
-
 // Close profile, new card, and image modals with ESC KEY function
 const handleEscKeyDown = (evt) => {
   if (evt.key === "Escape") {

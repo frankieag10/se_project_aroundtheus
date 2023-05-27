@@ -1,9 +1,9 @@
-import {
+/*import {
   validationSettings,
   Modals,
   AllButtons,
   formData,
-} from "../pages/index.js";
+} from "../pages/index.js";*/
 
 export default class FormValidator {
   constructor(settings, formEl) {
@@ -17,7 +17,6 @@ export default class FormValidator {
     this._inputEls = [...this._form.querySelectorAll(this._inputSelector)];
     this._submitButton = this._form.querySelector(this._submitButtonSelector);
 
-    //this.enableValidation();
     this._toggleButtonState();
   }
 
@@ -78,9 +77,6 @@ export default class FormValidator {
   _toggleButtonState() {
     const isFormValid = !this._hasInvalidInputs() && !this._hasEmptyInputs();
     this._submitButton.disabled = !isFormValid;
-    this._submitButton.classList.toggle(
-      this._inactiveButtonClass,
-      !isFormValid
-    );
+    this._submitButton.classList.toggle(this._inactiveButtonClass, !isFormValid);
   }
 }

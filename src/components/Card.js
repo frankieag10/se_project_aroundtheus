@@ -1,13 +1,5 @@
 import { openModal } from "../utils/utils.js";
-import {
-  Modals,
-  validationSettings,
-  AllButtons,
-  formData,
-  modalImageElement,
-  popUpCaption,
-  imageModal,
-} from "../pages/index.js";
+import { imageModal, popUpCaption, modalImageElement } from "../utils/constants.js";
 
 export default class Card {
   constructor(data, cardSelector) {
@@ -23,15 +15,11 @@ export default class Card {
     likeButton.addEventListener("click", () => this._handleLikeIcon());
     deleteButton.addEventListener("click", () => this._handleDeleteIcon());
 
-    this._cardImage.addEventListener("click", (e) =>
-      this._handlePreviewImage(e)
-    );
+    this._cardImage.addEventListener("click", (e) => this._handlePreviewImage(e));
   }
 
   _handleLikeIcon() {
-    this._element
-      .querySelector(".card__like-button")
-      .classList.toggle("card__like-button_active");
+    this._element.querySelector(".card__like-button").classList.toggle("card__like-button_active");
   }
   _handleDeleteIcon() {
     this._element.remove();
