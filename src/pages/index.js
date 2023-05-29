@@ -5,7 +5,6 @@ import PopupwithForm from "../components/popupwithForm.js";
 import UserInfo from "../components/UserInfo.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import Section from "../components/Section.js";
-import {} from "../utils/constants.js";
 import { handleEscKeyDown, openModal, closeModal } from "../utils/utils.js";
 import {
   editProfileModal,
@@ -38,7 +37,7 @@ addFormValidator.enableValidation();
 
 const userInfo = new UserInfo({ profileTitle, profileDescription });
 
-export const modalWithImage = new PopupWithImage({ modalSelector: imageModal });
+export const modalWithImage = new PopupWithImage({});
 
 const modalFormUser = new PopupwithForm({
   modalSelector: editProfileModal,

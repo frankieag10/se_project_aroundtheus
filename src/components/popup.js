@@ -2,7 +2,7 @@ import { profileFormElement } from "../utils/constants.js";
 
 export default class Popup {
   constructor({ modalSelector }) {
-    this._modalElement = document.querySelector(modalSelector);
+    this._modalElement = document.getElementById(modalSelector);
     this._handleEscKey = this._handleEscKey.bind(this);
   }
 
