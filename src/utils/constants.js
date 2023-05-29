@@ -38,12 +38,23 @@ export const cardList = document.querySelector(".cards__list");
 export const profileEditButton = document.querySelector(".profile__edit-button");
 export const profileModalCloseButton = editProfileModal.querySelector(".modal__close-button");
 export const addCardModalCloseButton = addCardModal.querySelector(".modal__close-button");
-export const profileTitle = document.querySelector(".profile__title");
 export const profileDescription = document.querySelector(".profile__description");
 export const addNewCardButton = document.querySelector(".profile__add-button");
 export const modalSaveButton = document.querySelector(".modal__save-button");
 export const cardButtonDelete = document.querySelector(".card__button-delete");
 export const modalCloseImageButton = document.querySelector("#modal-close-image-button");
+//SELECTORS//
+export const userNameSelector = "#profile__title";
+export const userDescriptionSelector = ".profile-description";
+export const profileModalSelector = "#edit-modal";
+export const imageModalSelector = "#modal-image-popup";
+export const cardModalSelector = "#add-card-modal";
+export const cardListSelector = ".cards__list";
+export const modalNameInputSelector = "#profile-title-input";
+export const modalDescriptionInputSelector = "#profile-description-input";
+export const modalNameInput = document.querySelector(modalNameInputSelector);
+export const modalDescriptionInput = document.querySelector(modalDescriptionInputSelector);
+
 //FORM DATA//
 export const nameInput = profileFormElement.querySelector(".modal__form-input_type_name");
 export const jobInput = profileFormElement.querySelector(".modal__form-input_type_description");
@@ -73,7 +84,7 @@ export const AllButtons = {
   profileEditButton: ".profile__edit-button",
   profileModalCloseButton: ".modal__close-button",
   addCardModalCloseButton: ".modal__close-button",
-  profileTitle: ".profile__title",
+  userNameSelector: ".profile__title",
   profileDescription: ".profile__description",
   addNewCardButton: ".profile__add-button",
   modalSaveButton: ".modal__save-button",

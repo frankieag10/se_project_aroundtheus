@@ -1,5 +1,4 @@
-import { profileFormElement } from "../utils/constants.js";
-import Popup from "./popup.js";
+import Popup from "./Popup.js";
 
 export default class PopupwithForm extends Popup {
   constructor({ modalSelector, handleFormSubmit }) {
