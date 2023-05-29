@@ -24,7 +24,6 @@ import {
   addNewCardButton,
   modalCloseImageButton,
   initialCards,
-  cardsWrap,
   cardList,
   validationSettings,
   imageModal,
@@ -43,16 +42,16 @@ export const modalWithImage = new PopupWithImage({ modalSelector: imageModal });
 
 const modalFormUser = new PopupwithForm({
   modalSelector: editProfileModal,
-  handleFormSubmit: (data) => {
-    userInfo.setUserInfo(data);
+  handleFormSubmit: (cardData) => {
+    userInfo.setUserInfo(cardData);
   },
 });
 
 const modalFormImage = new PopupwithForm({
   modalSelector: addCardModal,
-  handleFormSubmit: (inputValues) => {
-    const name = inputValues.title;
-    const link = inputValues.url;
+  handleFormSubmit: () => {
+    const name = cardTitleInput.value;
+    const link = cardUrlInput.value;
 
     renderCard({ link, name }, cardList);
   },
@@ -76,7 +75,7 @@ function renderCard(cardData, list) {
 }
 
 //rendering cards from array//
-initialCards.forEach((cardData) => renderCard(cardData, cardsWrap));
+initialCards.forEach((cardData) => renderCard(cardData, cardList));
 
 //SETTING EVENT LISTENERS//
 

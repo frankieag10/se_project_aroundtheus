@@ -25,7 +25,7 @@ export const initialCards = [
   },
 ];
 //MODALS//
-export const cardsWrap = document.querySelector(".cards__list");
+//export const cardsWrap = document.querySelector(".cards__list");
 export const editProfileModal = document.querySelector("#edit-modal");
 export const addCardModal = document.querySelector("#add-card-modal");
 export const profileFormElement = editProfileModal.querySelector(".modal__form");
