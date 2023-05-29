@@ -48,7 +48,7 @@ const modalFormUser = new PopupwithForm({
 
 const modalFormImage = new PopupwithForm({
   modalSelector: addCardModal,
-  handleFormSubmit: (cardData) => {
+  handleFormSubmit: () => {
     const name = cardTitleInput.value;
     const link = cardUrlInput.value;
 
