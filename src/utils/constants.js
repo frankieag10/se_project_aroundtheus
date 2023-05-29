@@ -58,7 +58,7 @@ export const validationSettings = {
   errorClass: "modal__error-message_visible",
 };
 
-export const Modals = {
+/*export const Modals = {
   cardsWrap: ".cards__list",
   editProfileModal: "#edit-modal",
   addCardModal: "#add-card-modal",
@@ -67,7 +67,7 @@ export const Modals = {
   imageModal: "#modal-image-popup",
   modalImageElement: () => document.querySelector("#popup__image"),
   popUpCaption: "#popup-caption",
-};
+};*/
 
 export const AllButtons = {
   profileEditButton: ".profile__edit-button",

@@ -1,8 +1,8 @@
-import { profileFormElement } from "../utils/constants";
+import { profileFormElement } from "../utils/constants.js";
 
 export default class Popup {
   constructor({ modalSelector }) {
-    this._modalElement = document.querySelector(profileFormElement);
+    this._modalElement = document.querySelector(modalSelector);
     this._handleEscKey = this._handleEscKey.bind(this);
   }
 

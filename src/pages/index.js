@@ -8,7 +8,6 @@ import Section from "../components/Section.js";
 import {} from "../utils/constants.js";
 import { handleEscKeyDown, openModal, closeModal } from "../utils/utils.js";
 import {
-  imageModal,
   editProfileModal,
   profileTitle,
   profileDescription,
@@ -28,6 +27,7 @@ import {
   cardsWrap,
   cardList,
   validationSettings,
+  imageModal,
 } from "../utils/constants.js";
 
 //INITIATING CARD FROM ARRAY//
@@ -39,7 +39,7 @@ addFormValidator.enableValidation();
 
 const userInfo = new UserInfo({ profileTitle, profileDescription });
 
-const modalWithImage = new PopupWithImage({ modalSelector: imageModal });
+export const modalWithImage = new PopupWithImage({ modalSelector: imageModal });
 
 const modalFormUser = new PopupwithForm({
   modalSelector: editProfileModal,
