@@ -29,15 +29,15 @@ import {
 } from "../utils/constants.js";
 
 //INITIATING CARD FROM ARRAY//
-const editformValidator = new FormValidator(validationSettings, profileFormElement);
-editformValidator.enableValidation();
+const editFormValidator = new FormValidator(validationSettings, profileFormElement);
+editFormValidator.enableValidation();
 
 const addFormValidator = new FormValidator(validationSettings, addCardFormElement);
 addFormValidator.enableValidation();
 
 const userInfo = new UserInfo({ profileTitle, profileDescription });
 
-export const modalWithImage = new PopupWithImage({});
+export const modalWithImage = new PopupWithImage({ modalSelector: imageModal });
 
 const modalFormUser = new PopupwithForm({
   modalSelector: editProfileModal,
@@ -48,7 +48,7 @@ const modalFormUser = new PopupwithForm({
 
 const modalFormImage = new PopupwithForm({
   modalSelector: addCardModal,
-  handleFormSubmit: () => {
+  handleFormSubmit: (cardData) => {
     const name = cardTitleInput.value;
     const link = cardUrlInput.value;
 
