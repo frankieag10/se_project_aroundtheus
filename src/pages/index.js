@@ -5,6 +5,7 @@ import PopupwithForm from "../components/PopupwithForm.js";
 import UserInfo from "../components/UserInfo.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import Section from "../components/Section.js";
+import "../pages/index.css";
 import { handleEscKeyDown, openModal, closeModal } from "../utils/utils.js";
 import {
   editProfileModal,

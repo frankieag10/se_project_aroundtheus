@@ -7,7 +7,6 @@
     <meta name="description" content="Image gallery of notable U.S. areas" />
     <meta name="author" content="frank aguirre" />
     <meta name="keywords" content="gallery, pictures, landmarks" />
-    <link rel="stylesheet" href="./pages/index.css" />
     <link rel="icon" href="./favicon.ico" />
     <title>Around the U.S. Gallery</title>
 </head>
@@ -15,13 +14,13 @@
 <body class="page">
     <div class="page__content">
         <header class="header page__section">
-            <img class="header__logo" src="./images/vectors/aroundtheUS.svg" alt="around the U.S" />
+            <img class="header__logo" src="<%=require('./images/vectors/aroundtheUS.svg')%>" alt="around the U.S" />
         </header>
 
 
         <main class="content">
             <section class="profile page__section">
-                <img class="profile__image" src="./images/jacques-cousteau.jpg" alt="Profile image" />
+                <img class="profile__image" src="<%=require('./images/jacques-cousteau.jpg')%>" alt="Profile image" />
                 <div class="profile__info">
                     <h1 class="profile__title" id="profile-title">Jacques Cousteau</h1>
                     <button class="profile__edit-button" type="button" id="profile-edit-button"></button>
@@ -92,8 +91,7 @@
         </li>
     </template>
 
-    <!--<script src="./scripts/validate.js" defer></script>-->
-    <script type="module" src="./pages/index.js" defer></script>
+
 
 </body>
 
