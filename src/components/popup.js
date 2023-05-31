@@ -1,6 +1,6 @@
 export default class Popup {
-  constructor(modalSelector) {
-    this._modalElement = document.getElementById(modalSelector);
+  constructor({ modalSelector }) {
+    this._modalElement = document.querySelector(modalSelector);
     this._handleEscKey = this._handleEscKey.bind(this);
   }
 
@@ -24,7 +24,7 @@ export default class Popup {
   }
 
   setEventListeners() {
-    const modalCloseButton = this._modalElement.querySelector("#modal-close-image-button");
+    const modalCloseButton = this._modalElement.querySelector(".modal__close-button");
     modalCloseButton.addEventListener("click", () => this.close());
     this._modalElement.addEventListener("click", (event) => {
       if (event.target === this._modalElement) {

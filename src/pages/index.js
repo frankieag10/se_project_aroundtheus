@@ -8,13 +8,6 @@ import Section from "../components/Section.js";
 import "../pages/index.css";
 import { handleEscKeyDown, openModal, closeModal } from "../utils/utils.js";
 import {
-  editProfileModal,
-  profileDescription,
-  nameInput,
-  jobInput,
-  cardTitleInput,
-  addCardModal,
-  cardUrlInput,
   profileFormElement,
   addCardFormElement,
   initialCards,
@@ -30,6 +23,7 @@ import {
   modalNameInput,
   modalDescriptionInput,
   addNewCardButton,
+  imageModalSelector,
 } from "../utils/constants.js";
 
 //INITIATING CARD//
@@ -41,7 +35,7 @@ addFormValidator.enableValidation();
 
 const userInfo = new UserInfo({ userNameSelector, userDescriptionSelector });
 
-export const modalWithImage = new PopupWithImage({ modalSelector: imageModal });
+export const modalWithImage = new PopupWithImage({ modalSelector: imageModalSelector });
 
 const modalFormUser = new PopupwithForm({
   modalSelector: profileModalSelector,
@@ -168,8 +162,8 @@ clickOffPopUp(addCardModal);*/
 /* ____________________EVENT LISTENERS__________________*/
 //////////////////////////////////////////////////////////
 
-profileFormElement.addEventListener("submit", handleProfileFormSubmit);
-addCardFormElement.addEventListener("submit", handleAddCardFormSubmit);
+//profileFormElement.addEventListener("submit", handleProfileFormSubmit);
+//addCardFormElement.addEventListener("submit", handleAddCardFormSubmit);
 
 //open profile edit button(function)//
 /*function openEditProfileModal() {
