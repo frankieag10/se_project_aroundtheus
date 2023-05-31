@@ -71,17 +71,6 @@ export const validationSettings = {
   errorClass: "modal__error-message_visible",
 };
 
-/*export const Modals = {
-  cardsWrap: ".cards__list",
-  editProfileModal: "#edit-modal",
-  addCardModal: "#add-card-modal",
-  profileFormElement: ".modal__form",
-  addCardFormElement: ".modal__form",
-  imageModal: "#modal-image-popup",
-  modalImageElement: () => document.querySelector("#popup__image"),
-  popUpCaption: "#popup-caption",
-};*/
-
 export const AllButtons = {
   profileEditButton: ".profile__edit-button",
   profileModalCloseButton: ".modal__close-button",
