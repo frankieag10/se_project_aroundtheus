@@ -1,6 +1,3 @@
-import { openModal } from "../utils/utils.js";
-import { imageModal, popUpCaption, modalImageElement } from "../utils/constants.js";
-
 export default class Card {
   constructor(data, cardSelector) {
     this._name = data.name;
@@ -14,23 +11,15 @@ export default class Card {
 
     likeButton.addEventListener("click", () => this._handleLikeIcon());
     deleteButton.addEventListener("click", () => this._handleDeleteIcon());
-
-    this._cardImage.addEventListener("click", (e) => this._handlePreviewImage(e));
   }
 
   _handleLikeIcon() {
     this._element.querySelector(".card__like-button").classList.toggle("card__like-button_active");
   }
+
   _handleDeleteIcon() {
     this._element.remove();
     this._element = null;
-  }
-  _handlePreviewImage(e) {
-    e.preventDefault();
-    openModal(imageModal);
-    popUpCaption.textContent = this._name;
-    modalImageElement.src = this._link;
-    modalImageElement.alt = this._name;
   }
 
   _getTemplate() {

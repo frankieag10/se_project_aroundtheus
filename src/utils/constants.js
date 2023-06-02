@@ -53,6 +53,7 @@ export const cardModalSelector = "#add-card-modal";
 export const cardListSelector = ".cards__list";
 export const modalNameInputSelector = "#profile-title-input";
 export const modalDescriptionInputSelector = "#profile-description-input";
+export const cardImageSelector = ",card__image";
 export const modalNameInput = document.querySelector(modalNameInputSelector);
 export const modalDescriptionInput = document.querySelector(modalDescriptionInputSelector);
 export const profileTitle = document.querySelector(userNameSelector);

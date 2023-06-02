@@ -33,9 +33,12 @@ addFormValidator.enableValidation();
 //CONST FOR CARD//
 const userInfo = new UserInfo({ userNameSelector, userDescriptionSelector });
 
-export const modalWithImage = new PopupWithImage({ modalSelector: imageModalSelector });
-
 export const cardTemplate = document.querySelector("#card-template").content.querySelector(".card");
+
+const modalWithImage = new PopupWithImage({
+  modalSelector: imageModalSelector,
+  handleImageClick: handleCardClick,
+});
 
 const modalFormUser = new PopupwithForm({
   modalSelector: profileModalSelector,
@@ -57,7 +60,7 @@ const modalFormImage = new PopupwithForm({
 const cardSection = new Section(
   {
     data: initialCards,
-    renderer: renderCard,
+    render: renderCard,
   },
   cardListSelector
 );
@@ -97,5 +100,14 @@ function createCard(cardData) {
     },
     "#card-template"
   );
-  return card.getView();
+
+  const cardElement = card.getView();
+  cardElement.addEventListener("click", () => handleCardClick(cardData));
+  return cardElement;
+}
+
+function handleCardClick(cardData) {
+  if (cardData && cardData.link && cardData.name) {
+    modalWithImage.open({ link: cardData.link, name: cardData.name });
+  }
 }
