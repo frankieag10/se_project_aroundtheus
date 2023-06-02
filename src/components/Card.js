@@ -9,8 +9,15 @@ export default class Card {
     const likeButton = this._element.querySelector(".card__like-button");
     const deleteButton = this._element.querySelector(".card__button-delete");
 
-    likeButton.addEventListener("click", () => this._handleLikeIcon());
-    deleteButton.addEventListener("click", () => this._handleDeleteIcon());
+    likeButton.addEventListener("click", (event) => {
+      event.stopPropagation();
+      this._handleLikeIcon();
+    });
+
+    deleteButton.addEventListener("click", (event) => {
+      event.stopPropagation();
+      this._handleDeleteIcon();
+    });
   }
 
   _handleLikeIcon() {
