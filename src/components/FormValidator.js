@@ -70,7 +70,8 @@ export default class FormValidator {
       const errorMessageEl = this._form.querySelector(`#${inputEl.id}-error`);
       this._hideInputError(inputEl, errorMessageEl);
     });
-    this._submitButton.classList.add(this._inactiveButtonClass);
+    //this._submitButton.classList.add(this._inactiveButtonClass);
+    this._toggleButtonState();
     this._submitButton.disabled = true;
   }
 

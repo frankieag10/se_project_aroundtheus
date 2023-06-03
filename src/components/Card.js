@@ -1,8 +1,12 @@
+import { data } from "autoprefixer";
+
 export default class Card {
-  constructor(data, cardSelector) {
+  constructor(data, cardSelector, handleCardClick) {
+    this._data = data;
     this._name = data.name;
     this._link = data.link;
     this._cardSelector = cardSelector;
+    this._handleCardClick = handleCardClick;
   }
 
   _setEventListeners() {
@@ -17,6 +21,9 @@ export default class Card {
     deleteButton.addEventListener("click", (event) => {
       event.stopPropagation();
       this._handleDeleteIcon();
+    });
+    this._cardImage.addEventListener("click", () => {
+      this._handleCardClick(this._data);
     });
   }
 

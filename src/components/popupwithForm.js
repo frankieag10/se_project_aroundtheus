@@ -26,6 +26,7 @@ export default class PopupwithForm extends Popup {
       event.preventDefault();
       this._handleFormSubmit(this._getInputValues());
       this.close();
+      this._handleCardClick(cardData);
     });
 
     super.setEventListeners();

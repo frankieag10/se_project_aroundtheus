@@ -21,7 +21,6 @@ import {
   modalDescriptionInput,
   addNewCardButton,
   imageModalSelector,
-  cardImageSelector,
 } from "../utils/constants.js";
 
 //CONST VALIDATORS//
@@ -99,11 +98,11 @@ function createCard(cardData) {
       name: cardData.name,
       link: cardData.link,
     },
-    "#card-template"
+    "#card-template",
+    handleCardClick
   );
 
   const cardElement = card.getView();
-  cardElement.addEventListener("click", () => handleCardClick(cardData));
   return cardElement;
 }
 
