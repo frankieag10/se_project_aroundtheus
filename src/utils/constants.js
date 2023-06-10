@@ -35,6 +35,8 @@ export const modalImageElement = imageModal.querySelector("#popup__image");
 export const popUpCaption = document.querySelector("#popup-caption");
 export const cardList = document.querySelector(".cards__list");
 export const modalCloseButton = document.querySelector(".modal__close-button");
+export const cardDeleteModal = "#card-delete-modal";
+
 //BUTTONS//
 export const profileEditButton = document.querySelector(".profile__edit-button");
 export const profileModalCloseButton = editProfileModal.querySelector(".modal__close-button");
@@ -44,6 +46,8 @@ export const addNewCardButton = document.querySelector(".profile__add-button");
 export const modalSaveButton = document.querySelector(".modal__save-button");
 export const cardButtonDelete = document.querySelector(".card__button-delete");
 export const modalCloseImageButton = document.querySelector("#modal-close-image-button");
+export const editButtonAvatar = document.querySelector(".profile__avatar-edit-button");
+
 //SELECTORS//
 export const userNameSelector = "#profile-title";
 export const userDescriptionSelector = ".profile__description";
@@ -54,6 +58,8 @@ export const cardListSelector = ".cards__list";
 export const modalNameInputSelector = "#profile-title-input";
 export const modalDescriptionInputSelector = "#profile-description-input";
 export const cardImageSelector = ",card__image";
+export const modalChangeProfileSelector = "#change-profile-modal";
+export const avatarSelector = ".profile__avatar";
 export const modalNameInput = document.querySelector(modalNameInputSelector);
 export const modalDescriptionInput = document.querySelector(modalDescriptionInputSelector);
 export const profileTitle = document.querySelector(userNameSelector);

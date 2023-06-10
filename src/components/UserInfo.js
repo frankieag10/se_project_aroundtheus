@@ -1,7 +1,10 @@
+import { avatarSelector } from "../utils/constants";
+
 export default class UserInfo {
-  constructor({ userNameSelector, userDescriptionSelector }) {
+  constructor({ userNameSelector, userDescriptionSelector, avatarSelector }) {
     this._userNameElement = document.querySelector(userNameSelector);
     this._userDescriptionElement = document.querySelector(userDescriptionSelector);
+    this._profileAvatarElement = document.querySelector(avatarSelector);
   }
 
   getUserInfo() {
@@ -14,5 +17,8 @@ export default class UserInfo {
   setUserInfo({ title, description }) {
     this._userNameElement.textContent = title;
     this._userDescriptionElement.textContent = description;
+  }
+  setAvatarInfo(avatar) {
+    this._profileAvatarElement.src = avatar;
   }
 }

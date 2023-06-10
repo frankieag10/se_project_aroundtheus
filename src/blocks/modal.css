@@ -59,11 +59,37 @@
   margin-bottom: 54px;
   color: #000;
 }
+#modal-profilepic-heading {
+  max-width: 330px;
+  font-family: "Inter", sans-serif;
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 22px;
+  margin-top: 15px;
+  margin-bottom: 0;
+  padding: 0px;
+  margin-top: 15px;
+  color: #000;
+}
 
 .modal__form {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+#modal-avatar-url-input {
+  margin-top: 54px;
+  height: 27px;
+  border: none;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16.94px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  text-align: left;
+  letter-spacing: 0em;
+  outline-color: #000;
 }
 
 .modal__form-input {

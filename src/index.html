@@ -20,13 +20,18 @@
 
         <main class="content">
             <section class="profile page__section">
-                <img class="profile__image" src="<%=require('./images/jacques-cousteau.jpg')%>" alt="Profile image" />
+                <div class="profile__avatar-edit">
+                    <img class="profile__avatar" src="<%=require('./images/jacques-cousteau.jpg')%>"
+                        alt="Profile avatar" />
+                    <button class="profile__avatar-edit-button" type="button"></button>
+                </div>
                 <div class="profile__info">
                     <h1 class="profile__title" id="profile-title">Jacques Cousteau</h1>
                     <button class="profile__edit-button" type="button" id="profile-edit-button"></button>
                     <p class="profile__description">Explorer</p>
                 </div>
                 <button class="profile__add-button" id="profile-add-button" type="button"></button>
+
             </section>
 
             <section class="cards page__section">
@@ -37,7 +42,7 @@
             <p class="footer__text">© 2023 around the U.S</p>
         </footer>
     </div>
-    <!--edit modal -->
+    <!--profile edit modal -->
     <div class="modal" id="edit-modal">
         <div class="modal__container">
             <button class="modal__close-button" id="modal-close-button" type="button"></button>
@@ -51,6 +56,22 @@
                 <span class="modal__error-message" id="profile-description-input-error">Please fill out this
                     field</span>
                 <button class="modal__save-button" type="submit">Save</button>
+            </form>
+        </div>
+    </div>
+    <!-- change profile(avatar) modal opened -->
+    <div class="modal" id="change-profile-modal">
+        <div class="modal__container">
+            <button class="modal__close-button" id="modal-avatar-close" type="button"></button>
+            <h3 class="modal__heading" id="modal-profilepic-heading">Change profile picture</h3>
+            <form class="modal__form" action="#" id="modal__form-avatar">
+                <input class="modal__form-input" id="modal-avatar-url-input" type="url" name="url" value=""
+                    placeholder="Image URL" required />
+                <span class="modal__error-message" id="modal-avatar-url-input-error"></span>
+                <button class="modal__save-button modal__button_disabled" id="chanage-profilepic-submit-button"
+                    type="submit" disabled>
+                    Save
+                </button>
             </form>
         </div>
     </div>
@@ -71,7 +92,19 @@
         </div>
 
     </div>
-    <!--image popup-->
+    <!--modal delete form -->
+    <div class="modal" id="card-delete-modal">
+        <div class="modal__container">
+            <button type="button" class="modal__close-button" id="card-delete-modal-close"></button>
+            <h3 class="modal__heading">Are you sure?</h3>
+            <form class="modal__Delete-Form" action="#" class="modal__form">
+                <button class="modal__delete-button" id="card-delete-modal-submit-button" type="submit">
+                    Save
+                </button>
+            </form>
+        </div>
+    </div>
+    <!--image (modal)popup-->
     <div class="modal" id="modal-image-popup">
         <div class="modal__container modal__container_type_image">
             <button class="modal__close-button" id="modal-close-image-button" type="button"></button>
@@ -86,7 +119,8 @@
             <img class="card__image" src="" alt="">
             <div class="card__description">
                 <h2 class="card__title"></h2>
-                <button class="card__like-button" type="button"> </button>
+                <button class="card__like-button" type="button" aria-label="Like"> </button>
+                <span class="card__like-amount">0</span>
             </div>
         </li>
     </template>
