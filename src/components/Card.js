@@ -57,9 +57,15 @@ export default class Card {
     }
   }
 
-  _handleDeleteIcon() {
+  handleDeleteIcon() {
     this._element.remove();
     this._element = null;
+  }
+
+  _cardIdOwner() {
+    if (this._myId !== this._owner._id) {
+      this._deleteButton.classList.add("card__delete-button-hidden");
+    }
   }
 
   _getTemplate() {
@@ -80,6 +86,7 @@ export default class Card {
     this._setEventListeners();
     this._handleLikeIcon();
     this.updateLikes();
+    this._cardIdOwner();
     return this._element;
   }
 }

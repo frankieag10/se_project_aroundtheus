@@ -96,16 +96,6 @@ const modalFormUser = new PopupwithForm({
   loadingText: "Saving...",
 });
 
-const modalFormImage = new PopupwithForm({
-  modalSelector: cardModalSelector,
-  handleFormSubmit: (data) => {
-    api.addCard(data).then((data) => {
-      console.log(data);
-    });
-  },
-});
-
-//test test
 api.getInitialCards().then((cardData) => {
   const cardSection = new Section(
     {
@@ -122,7 +112,43 @@ api.getInitialCards().then((cardData) => {
 
   cardSection.renderItems();
 });
-//test test
+
+const modalFormImage = new PopupWithForm({
+  modalSelector: cardModalSelector,
+  handleFormSubmit: (data) => {
+    console.log(data);
+    modalFormImage.renderLoading(true);
+    api
+      .addCard(data)
+      .then((data) => {
+        renderCard(data);
+      })
+      .catch((err) => {
+        console.error(err);
+      })
+      .finally(() => {
+        modalFormImage.renderLoading(false);
+      });
+  },
+  loadingText: "Saving...",
+});
+
+api.getInitialCards().then((cardData) => {
+  const cardSection = new Section(
+    {
+      data: cardData,
+      render: renderCard,
+    },
+    cardListSelector
+  );
+
+  function renderCard(cardData) {
+    const cardImage = createCard(cardData);
+    cardSection.prependItem(cardImage);
+  }
+
+  cardSection.renderItems();
+});
 
 const deleteModal = new PopupWithForm({
   handleFormSubmit: () => {
@@ -141,6 +167,7 @@ modalFormImage.setEventListeners();
 modalWithImage.setEventListeners();
 modalFormUser.setEventListeners();
 deleteModal.setEventListeners();
+changeProfilePopup.setEventListeners();
 
 profileEditButton.addEventListener("click", () => {
   modalFormUser.open();
@@ -173,20 +200,46 @@ function createCard(cardData) {
         deleteModal.open();
         deleteModal.setSubmitAction(() => {
           const id = card.getId();
-          api.removeCard(id).then((res) => console.log(res));
+          api.removeCard(id);
+          const modalFormImage = new PopupWithForm({
+            modalSelector: cardModalSelector,
+            handleFormSubmit: (data) => {
+              console.log(data);
+              modalFormImage.renderLoading(true);
+              api
+                .addCard(data)
+                .then((data) => {
+                  renderCard(data);
+                })
+                .catch((err) => {
+                  console.error(err);
+                })
+                .finally(() => {
+                  modalFormImage.renderLoading(false);
+                });
+            },
+            loadingText: "Saving...",
+          });
+
           card.handleDeleteIcon();
         });
       },
       handleLikeClick: () => {
         const id = card.getId();
         if (card.isLiked()) {
-          api.unLikeCard(id).then((data) => {
-            card.setLikes(data.likes);
-          });
+          api
+            .unLikeCard(id)
+            .then((data) => {
+              card.setLikes(data.likes);
+            })
+            .catch((err) => console.error(err));
         } else {
-          api.likeCard(id).then((data) => {
-            card.setLikes(data.likes);
-          });
+          api
+            .likeCard(id)
+            .then((data) => {
+              card.setLikes(data.likes);
+            })
+            .catch((err) => console.error(err));
         }
       },
     },

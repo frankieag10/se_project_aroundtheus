@@ -1,10 +1,3 @@
-/*import {
-  validationSettings,
-  Modals,
-  AllButtons,
-  formData,
-} from "../pages/index.js";*/
-
 export default class FormValidator {
   constructor(settings, formEl) {
     this._inputSelector = settings.inputSelector;
