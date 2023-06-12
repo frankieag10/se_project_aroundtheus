@@ -30,6 +30,7 @@ export const editProfileModal = document.querySelector("#edit-modal");
 export const addCardModal = document.querySelector("#add-card-modal");
 export const profileFormElement = editProfileModal.querySelector(".modal__form");
 export const addCardFormElement = addCardModal.querySelector(".modal__form");
+//export const modalProfileForm = changeProfileModal.querySelector(".modal__form");
 export const imageModal = document.querySelector("#modal-image-popup");
 export const modalImageElement = imageModal.querySelector("#popup__image");
 export const popUpCaption = document.querySelector("#popup-caption");
@@ -55,14 +56,21 @@ export const profileModalSelector = "#edit-modal";
 export const imageModalSelector = "#modal-image-popup";
 export const cardModalSelector = "#add-card-modal";
 export const cardListSelector = ".cards__list";
-export const modalNameInputSelector = "#profile-title-input";
-export const modalDescriptionInputSelector = "#profile-description-input";
+//export const profileNameInputSelector = "#profile-title-input";
+//export const profileDescriptionInputSelector = "#profile-description-input";
 export const cardImageSelector = ",card__image";
 export const modalChangeProfileSelector = "#change-profile-modal";
+export const modalNameInputSelector = "#profile-title-input";
+export const modalDescriptionInputSelector = "#profile-description-input";
+export const editModalFormSelector = "#edit-modal-form";
+export const addCardFormSelector = "#add-card-form";
+export const avatarModalFormSelector = "#modal-form-avatar";
+
 export const avatarSelector = ".profile__avatar";
 export const modalNameInput = document.querySelector(modalNameInputSelector);
 export const modalDescriptionInput = document.querySelector(modalDescriptionInputSelector);
 export const profileTitle = document.querySelector(userNameSelector);
+export const changeProfileModal = document.querySelector(modalChangeProfileSelector);
 
 //FORM DATA//
 export const nameInput = profileFormElement.querySelector(".modal__form-input_type_name");
@@ -76,6 +84,7 @@ export const validationSettings = {
   inactiveButtonClass: "modal__save-button_inactive",
   inputErrorClass: "modal__form-input_type_error",
   errorClass: "modal__error-message_visible",
+  formSelector: ".modal__form",
 };
 
 export const AllButtons = {
