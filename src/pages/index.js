@@ -189,6 +189,7 @@ const enableValidation = (validationSettings) => {
 
 enableValidation(validationSettings);
 
+//open profile to change name/description
 profileEditButton.addEventListener("click", () => {
   modalFormUser.open();
   const userData = userInfo.getUserInfo();
@@ -197,12 +198,16 @@ profileEditButton.addEventListener("click", () => {
   if (formValidators.hasOwnProperty(editModalFormSelector))
     formValidators[editModalFormSelector].resetValidation();
 });
+
+//add new card
 addNewCardButton.addEventListener("click", () => {
   modalFormImage.open();
   if (formValidators.hasOwnProperty(addCardFormSelector)) {
     formValidators[addCardFormSelector].resetValidation();
   }
 });
+
+//change avatar picture
 editButtonAvatar.addEventListener("click", () => {
   changeProfilePopup.open();
   if (formValidators.hasOwnProperty(avatarModalFormSelector)) {
@@ -210,6 +215,7 @@ editButtonAvatar.addEventListener("click", () => {
   }
 });
 
+//create card//
 function createCard(cardData) {
   const likes = cardData.likes || [];
   const card = new Card(

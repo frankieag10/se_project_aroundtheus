@@ -59,6 +59,11 @@
   margin-bottom: 54px;
   color: #000;
 }
+
+.modal__heading-deleteform {
+  margin-bottom: 0;
+}
+
 #modal-profilepic-heading {
   max-width: 330px;
   font-family: "Inter", sans-serif;
@@ -198,5 +203,9 @@
     padding: 0;
     top: -10px;
     margin-left: 15px;
+  }
+
+  .modal__heading-deleteform {
+    margin-bottom: 0;
   }
 }
