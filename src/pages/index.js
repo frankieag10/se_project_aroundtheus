@@ -47,14 +47,22 @@ const api = new API({
 const userInfo = new UserInfo({ userNameSelector, userDescriptionSelector, avatarSelector });
 
 let userId;
-api.getUserInfo().then((userData) => {
-  userId = userData._id;
-  userInfo.setUserInfo({
-    title: userData.name,
-    description: userData.about,
+
+Promise.all([api.getUserInfo(), api.getInitialCards()])
+  .then(([userData, cardData]) => {
+    userId = userData._id;
+    userInfo.setUserInfo({
+      title: userData.name,
+      description: userData.about,
+    });
+    userInfo.setAvatarInfo(userData.avatar);
+
+    cardSection._data = cardData;
+    cardSection.renderItems();
+  })
+  .catch((err) => {
+    console.error(err);
   });
-  userInfo.setAvatarInfo(userData.avatar);
-});
 
 export const cardTemplate = document.querySelector("#card-template").content.querySelector(".card");
 
@@ -109,9 +117,8 @@ const cardSection = new Section(
   },
   cardListSelector
 );
-
 api.getInitialCards().then((cardData) => {
-  cardSection._data = cardData;
+  cardSection.data = cardData;
   cardSection.renderItems();
 });
 
@@ -129,10 +136,12 @@ const modalFormImage = new PopupWithForm({
       .addCard(data)
       .then((data) => {
         renderCard(data);
-        modalFormImage.close();
       })
       .catch((err) => {
         console.error(err);
+        modalFormImage.renderLoading(false);
+      })
+      .finally(() => {
         modalFormImage.renderLoading(false);
       });
   },
@@ -161,7 +170,6 @@ const deleteModal = new PopupWithForm({
     deleteModal.renderLoading(true);
   },
   modalSelector: cardDeleteModal,
-
   loadingText: "Deleting...",
 });
 
@@ -171,6 +179,7 @@ modalWithImage.setEventListeners();
 modalFormUser.setEventListeners();
 deleteModal.setEventListeners();
 changeProfilePopup.setEventListeners();
+modalFormUser.setEventListeners();
 
 const formValidators = {};
 
@@ -228,6 +237,7 @@ function createCard(cardData) {
       handleCardClick: (data) => {
         modalWithImage.open(data);
       },
+
       handleDeleteClick: () => {
         deleteModal.open();
         deleteModal.setSubmitAction(() => {
@@ -256,6 +266,7 @@ function createCard(cardData) {
           card.handleDeleteIcon();
         });
       },
+
       handleLikeClick: () => {
         const id = card.getId();
         if (card.isLiked()) {

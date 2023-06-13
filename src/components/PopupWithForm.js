@@ -26,6 +26,14 @@ export default class PopupWithForm extends Popup {
     this._handleFormSubmit = action;
   }
 
+  setInputValues(data) {
+    this._inputList.forEach((input) => {
+      if (data.hasOwnProperty(input.name)) {
+        input.value = data[input.name];
+      }
+    });
+  }
+
   renderLoading(isLoading) {
     if (isLoading) {
       this._submitButton.textContent = this._loadingText;
@@ -39,7 +47,6 @@ export default class PopupWithForm extends Popup {
     this._modalForm.addEventListener("submit", (event) => {
       event.preventDefault();
       this._handleFormSubmit(this._getInputValues());
-      this.close();
     });
   }
 }
