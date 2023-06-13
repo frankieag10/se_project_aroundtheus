@@ -48,22 +48,6 @@ const userInfo = new UserInfo({ userNameSelector, userDescriptionSelector, avata
 
 let userId;
 
-/*Promise.all([api.getUserInfo(), api.getInitialCards()])
-  .then(([userData, cardData]) => {
-    userId = userData._id;
-    userInfo.setUserInfo({
-      title: userData.name,
-      description: userData.about,
-    });
-    userInfo.setAvatarInfo(userData.avatar);
-
-    cardSection.data = cardData;
-    cardSection.renderItems();
-  })
-  .catch((err) => {
-    console.error(err);
-  });*/
-
 Promise.all([api.getUserInfo(), api.getInitialCards()])
   .then(([userData, cardData]) => {
     const cardSection = new Section(
