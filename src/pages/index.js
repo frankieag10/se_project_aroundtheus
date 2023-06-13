@@ -48,7 +48,7 @@ const userInfo = new UserInfo({ userNameSelector, userDescriptionSelector, avata
 
 let userId;
 
-Promise.all([api.getUserInfo(), api.getInitialCards()])
+/*Promise.all([api.getUserInfo(), api.getInitialCards()])
   .then(([userData, cardData]) => {
     userId = userData._id;
     userInfo.setUserInfo({
@@ -57,7 +57,35 @@ Promise.all([api.getUserInfo(), api.getInitialCards()])
     });
     userInfo.setAvatarInfo(userData.avatar);
 
-    cardSection._data = cardData;
+    cardSection.data = cardData;
+    cardSection.renderItems();
+  })
+  .catch((err) => {
+    console.error(err);
+  });*/
+
+Promise.all([api.getUserInfo(), api.getInitialCards()])
+  .then(([userData, cardData]) => {
+    const cardSection = new Section(
+      {
+        data: cardData,
+        render: renderCard,
+      },
+      cardListSelector
+    );
+
+    function renderCard(cardData) {
+      const cardImage = createCard(cardData);
+      cardSection.prependItem(cardImage);
+    }
+
+    userId = userData._id;
+    userInfo.setUserInfo({
+      title: userData.name,
+      description: userData.about,
+    });
+    userInfo.setAvatarInfo(userData.avatar);
+
     cardSection.renderItems();
   })
   .catch((err) => {
@@ -117,10 +145,6 @@ const cardSection = new Section(
   },
   cardListSelector
 );
-api.getInitialCards().then((cardData) => {
-  cardSection.data = cardData;
-  cardSection.renderItems();
-});
 
 function renderCard(cardData) {
   const cardImage = createCard(cardData);
@@ -139,30 +163,12 @@ const modalFormImage = new PopupWithForm({
       })
       .catch((err) => {
         console.error(err);
-        modalFormImage.renderLoading(false);
       })
       .finally(() => {
         modalFormImage.renderLoading(false);
       });
   },
   loadingText: "Saving...",
-});
-
-api.getInitialCards().then((cardData) => {
-  const cardSection = new Section(
-    {
-      data: cardData,
-      render: renderCard,
-    },
-    cardListSelector
-  );
-
-  function renderCard(cardData) {
-    const cardImage = createCard(cardData);
-    cardSection.prependItem(cardImage);
-  }
-
-  cardSection.renderItems();
 });
 
 const deleteModal = new PopupWithForm({
