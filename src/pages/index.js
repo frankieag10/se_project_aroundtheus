@@ -241,29 +241,18 @@ function createCard(cardData) {
       handleDeleteClick: () => {
         deleteModal.open();
         deleteModal.setSubmitAction(() => {
+          deleteModal.renderLoading(true);
           const id = card.getId();
-          api.removeCard(id);
-          const modalFormImage = new PopupWithForm({
-            modalSelector: cardModalSelector,
-            handleFormSubmit: (data) => {
-              console.log(data);
-              modalFormImage.renderLoading(true);
-              api
-                .addCard(data)
-                .then((data) => {
-                  renderCard(data);
-                })
-                .catch((err) => {
-                  console.error(err);
-                })
-                .finally(() => {
-                  modalFormImage.renderLoading(false);
-                });
-            },
-            loadingText: "Saving...",
-          });
-
-          card.handleDeleteIcon();
+          api
+            .removeCard(id)
+            .then(() => {
+              card.handleDeleteIcon();
+              deleteModal.close();
+            })
+            .catch(console.error)
+            .finally(() => {
+              deleteModal.renderLoading(false);
+            });
         });
       },
 
