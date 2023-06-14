@@ -48,27 +48,30 @@ const userInfo = new UserInfo({ userNameSelector, userDescriptionSelector, avata
 
 let userId;
 
+const cardSection = new Section(
+  {
+    data: [],
+    render: renderCard,
+  },
+  cardListSelector
+);
+
+function renderCard(cardData) {
+  const cardImage = createCard(cardData);
+  cardSection.prependItem(cardImage);
+}
+
 Promise.all([api.getUserInfo(), api.getInitialCards()])
   .then(([userData, cardData]) => {
-    const cardSection = new Section(
-      {
-        data: cardData,
-        render: renderCard,
-      },
-      cardListSelector
-    );
-
-    function renderCard(cardData) {
-      const cardImage = createCard(cardData);
-      cardSection.prependItem(cardImage);
-    }
-
     userId = userData._id;
     userInfo.setUserInfo({
       title: userData.name,
       description: userData.about,
     });
     userInfo.setAvatarInfo(userData.avatar);
+    cardData.forEach((card) => {
+      renderCard(card);
+    });
 
     cardSection.renderItems();
   })
@@ -122,19 +125,6 @@ const modalFormUser = new PopupwithForm({
   loadingText: "Saving...",
 });
 
-const cardSection = new Section(
-  {
-    data: [],
-    renderer: renderCard,
-  },
-  cardListSelector
-);
-
-function renderCard(cardData) {
-  const cardImage = createCard(cardData);
-  cardSection.prependItem(cardImage);
-}
-
 const modalFormImage = new PopupWithForm({
   modalSelector: cardModalSelector,
   handleFormSubmit: (data) => {
@@ -144,6 +134,7 @@ const modalFormImage = new PopupWithForm({
       .addCard(data)
       .then((data) => {
         renderCard(data);
+        modalFormImage.close();
       })
       .catch((err) => {
         console.error(err);
@@ -210,7 +201,7 @@ addNewCardButton.addEventListener("click", () => {
 editButtonAvatar.addEventListener("click", () => {
   changeProfilePopup.open();
   if (formValidators.hasOwnProperty(avatarModalFormSelector)) {
-    [avatarModalFormSelector].resetValidation();
+    formValidators[avatarModalFormSelector].resetValidation();
   }
 });
 
