@@ -43,8 +43,6 @@ const api = new API({
   },
 });
 
-//test1111//
-//testing//
 //test for pull&request
 //CONST FOR CARD//
 const userInfo = new UserInfo({ userNameSelector, userDescriptionSelector, avatarSelector });
