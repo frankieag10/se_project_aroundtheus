@@ -42,8 +42,8 @@ const api = new API({
     "Content-Type": "application/json",
   },
 });
+//test for request
 
-//test for pull&request
 //CONST FOR CARD//
 const userInfo = new UserInfo({ userNameSelector, userDescriptionSelector, avatarSelector });
 
