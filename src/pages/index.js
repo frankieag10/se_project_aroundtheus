@@ -120,6 +120,9 @@ const modalFormUser = new PopupwithForm({
       .catch(console.error)
       .finally(() => {
         modalFormUser.renderLoading(false);
+        if ("edit-modal-form" in formValidators) {
+          formValidators["edit-modal-form"].resetValidation();
+        }
       });
   },
   loadingText: "Saving...",
@@ -141,6 +144,9 @@ const modalFormImage = new PopupWithForm({
       })
       .finally(() => {
         modalFormImage.renderLoading(false);
+        if ("add-card-form" in formValidators) {
+          formValidators["add-card-form"].resetValidation();
+        }
       });
   },
   loadingText: "Saving...",
@@ -185,23 +191,24 @@ profileEditButton.addEventListener("click", () => {
   const userData = userInfo.getUserInfo();
   modalNameInput.value = userData.userName;
   modalDescriptionInput.value = userData.userDescription;
-  if (formValidators.hasOwnProperty(editModalFormSelector))
-    formValidators[editModalFormSelector].resetValidation();
+  if ("edit-modal-form" in formValidators) {
+    formValidators["edit-modal-form"].resetValidation();
+  }
 });
 
 //add new card
 addNewCardButton.addEventListener("click", () => {
   modalFormImage.open();
-  if (formValidators.hasOwnProperty(addCardFormSelector)) {
-    formValidators[addCardFormSelector].resetValidation();
+  if ("add-card-form" in formValidators) {
+    formValidators["add-card-form"].resetValidation();
   }
 });
 
 //change avatar picture
 editButtonAvatar.addEventListener("click", () => {
   changeProfilePopup.open();
-  if (formValidators.hasOwnProperty(avatarModalFormSelector)) {
-    formValidators[avatarModalFormSelector].resetValidation();
+  if ("modal-form-avatar" in formValidators) {
+    formValidators["modal-form-avatar"].resetValidation();
   }
 });
 
