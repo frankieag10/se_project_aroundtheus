@@ -186,24 +186,18 @@ profileEditButton.addEventListener("click", () => {
   const userData = userInfo.getUserInfo();
   modalNameInput.value = userData.userName;
   modalDescriptionInput.value = userData.userDescription;
-  if (formValidators.hasOwnProperty(editModalFormSelector))
-    formValidators[editModalFormSelector].resetValidation();
+  formValidators["edit-modal-form"].resetValidation();
 });
 
-//add new card
 addNewCardButton.addEventListener("click", () => {
   modalFormImage.open();
-  if (formValidators.hasOwnProperty(addCardFormSelector)) {
-    formValidators[addCardFormSelector].resetValidation();
-  }
+  formValidators["add-card-form"].resetValidation();
 });
 
 //change avatar picture
 editButtonAvatar.addEventListener("click", () => {
   changeProfilePopup.open();
-  if (formValidators.hasOwnProperty(avatarModalFormSelector)) {
-    formValidators[avatarModalFormSelector].resetValidation();
-  }
+  formValidators["modal-form-avatar"].resetValidation();
 });
 
 //create card//
