@@ -72,7 +72,7 @@ export default class FormValidator {
     const hasEmptyInputs = this._hasEmptyInputs();
 
     this._submitButton.disabled = !isFormValid || hasEmptyInputs;
-    if (hasEmptyInputs) {
+    if (hasEmptyInputs || !isFormValid) {
       this._submitButton.classList.add(this._inactiveButtonClass);
     } else {
       this._submitButton.classList.remove(this._inactiveButtonClass);
